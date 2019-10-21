@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Nat/Projects/makersBnB/app.rb": [
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/app.rb": [
         1,
         1,
         1,
@@ -113,7 +113,7 @@
         null,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/helpers/session_helpers.rb": [
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/helpers/session_helpers.rb": [
         1,
         null,
         1,
@@ -127,20 +127,12 @@
         1,
         4,
         null,
-        2,
+        3,
         null,
         null,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/models/booking.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/Nat/Projects/makersBnB/models/property.rb": [
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/models/booking.rb": [
         1,
         null,
         1,
@@ -148,7 +140,15 @@
         1,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/models/user.rb": [
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/models/property.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/models/user.rb": [
         1,
         1,
         1,
@@ -166,7 +166,7 @@
         1,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/spec/setup_test_database.rb": [
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/spec/setup_test_database.rb": [
         1,
         null,
         1,
@@ -174,7 +174,7 @@
         5,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/spec/features/user_authentication_spec.rb": [
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/spec/features/user_authentication_spec.rb": [
         1,
         1,
         1,
@@ -226,7 +226,7 @@
         null,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/spec/features/user_signup_spec.rb": [
+      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/spec/features/user_signup_spec.rb": [
         1,
         1,
         1,
@@ -240,6 +240,6 @@
         null
       ]
     },
-    "timestamp": 1571675697
+    "timestamp": 1571678078
   }
 }
