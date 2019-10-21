@@ -14,7 +14,7 @@ class MakersBnb < Sinatra::Base
   # enable :sessions, :method_override
 
   get '/' do
-    redirect '/home'
+    'hello world'
   end
 
   # get '/peeps' do
@@ -68,4 +68,3 @@ class MakersBnb < Sinatra::Base
   run! if app_file == $0
 
 end
-
