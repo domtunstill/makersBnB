@@ -20,7 +20,8 @@ class MakersBnb < Sinatra::Base
 
   get '/user/:id' do
     @user_id = params[:id]
-    @properties = Property.find_by(user_id: params[:id])
+    @properties = Property.where(user_id: params[:id])
+    p @properties
     erb :'user/index'
   end
 
