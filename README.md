@@ -4,6 +4,9 @@ makersBnB is a system for users to list and view spaces that can be booked for s
 
 ## Motivation
 
+## MVP
+
+Users can sign in/sign out and create listings for spaces. Users can view a list of their spaces.
 
 ## User Stories
 
