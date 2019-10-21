@@ -5,7 +5,8 @@
     <title></title>
   </head>
   <body>
-    <form action="/user/<%= @user_id %>/property" method="post">
+    <form action="/user/<%= @user_id %>/property/<%= @property_id %>" method="post">
+      <input type='hidden' name='_method' value='PATCH'/>
       <input type="text" name="name" placeholder="Name"/>
       <input type="text" name="description" placeholder="Description"/>
       <input type="text" name="price" placeholder="Price"/>

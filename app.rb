@@ -11,12 +11,11 @@ class MakersBnb < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   # register Sinatra::Flash
   # include SessionsHelper
-  # enable :sessions, :method_override
+  enable :sessions, :method_override
 
   get '/' do
     redirect '/home'
   end
-
 
   get '/user/:id' do
     @user_id = params[:id]
@@ -34,6 +33,26 @@ class MakersBnb < Sinatra::Base
     Property.create(user_id: params[:id], name: params[:name], description: params[:description], price_per_night: params[:price])
     redirect "/user/#{params[:id]}"
   end
+
+  get '/user/:id/property/:prop_id/update' do
+    @user_id = params[:id]
+    @property_id = params[:prop_id]
+    erb :'property/update'
+  end
+
+  patch '/user/:id/property/:prop_id' do
+    @property = Property.where(id: params[:prop_id]).first
+    @property.update(name: params[:name], description: params[:description], price_per_night: params[:price])
+    redirect "/user/#{params[:id]}"
+  end
+
+  delete '/user/:id/property/:prop_id' do
+    @property = Property.where(id: params[:prop_id]).first
+    @property.destroy
+    redirect "/user/#{params[:id]}"
+  end
+
+
 
   # get '/peeps' do
   #   @user = current_user
