@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/app.rb": [
+      "/Users/Nat/Projects/makersBnB/app.rb": [
         1,
         1,
         1,
@@ -113,7 +113,7 @@
         null,
         null
       ],
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/helpers/session_helpers.rb": [
+      "/Users/Nat/Projects/makersBnB/helpers/session_helpers.rb": [
         1,
         null,
         1,
@@ -132,7 +132,7 @@
         null,
         null
       ],
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/models/booking.rb": [
+      "/Users/Nat/Projects/makersBnB/models/booking.rb": [
         1,
         null,
         1,
@@ -140,7 +140,7 @@
         1,
         null
       ],
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/models/property.rb": [
+      "/Users/Nat/Projects/makersBnB/models/property.rb": [
         1,
         null,
         1,
@@ -148,7 +148,7 @@
         1,
         null
       ],
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/models/user.rb": [
+      "/Users/Nat/Projects/makersBnB/models/user.rb": [
         1,
         1,
         1,
@@ -166,7 +166,7 @@
         1,
         null
       ],
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/spec/setup_test_database.rb": [
+      "/Users/Nat/Projects/makersBnB/spec/setup_test_database.rb": [
         1,
         null,
         1,
@@ -174,7 +174,7 @@
         5,
         null
       ],
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/spec/features/user_authentication_spec.rb": [
+      "/Users/Nat/Projects/makersBnB/spec/features/user_authentication_spec.rb": [
         1,
         1,
         1,
@@ -226,7 +226,7 @@
         null,
         null
       ],
-      "/Users/student/Google Drive/Coding/Makers/Week6/makersBnB/spec/features/user_signup_spec.rb": [
+      "/Users/Nat/Projects/makersBnB/spec/features/user_signup_spec.rb": [
         1,
         1,
         1,

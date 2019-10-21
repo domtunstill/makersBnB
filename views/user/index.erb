@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/user/<%= @user_id %>/property/new" method="get">
+      <input type="submit" name="Create" value="Create new listing"/>
+    </form>
+    <%if @properties != nil%>
+    <ol>
+      <% @properties.each do |property| %>
+      <li class="listing">
+        <h3><%= property.name %></h3>
+        <p><%= property.description %></p>
+        <p>£<%= property.price_per_night %> per night</p>
+        <form action="/user/<%= @user_id %>/property/<%= property.id %>/update" method="get">
+          <input type="submit" name="Edit" value="Edit"/>
+        </form>
+        <form action="/user/<%= @user_id %>/property/<%= property.id %>" method="post">
+          <input type='hidden' name='_method' value='DELETE'/>
+          <input type="submit" value="Delete" />
+        </form>
+      </li>
+      <% end %>
+    </ol>
+    <% end %>
+  </body>
+</html>

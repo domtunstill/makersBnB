@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/user/<%= @user_id %>/property/<%= @property_id %>" method="post">
+      <input type='hidden' name='_method' value='PATCH'/>
+      <input type="text" name="name" placeholder="Name"/>
+      <input type="text" name="description" placeholder="Description"/>
+      <input type="text" name="price" placeholder="Price"/>
+      <input type="submit" name="Submit" />
+    </form>
+  </body>
+</html>
