@@ -5,11 +5,11 @@ require 'simplecov'
 require 'simplecov-console'
 require 'active_record'
 require 'sinatra/activerecord'
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require_relative './setup_test_database'
 
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
-
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 Capybara.app = MakersBnb
 
