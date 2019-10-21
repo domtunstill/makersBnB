@@ -17,6 +17,17 @@ class MakersBnb < Sinatra::Base
     redirect '/home'
   end
 
+  get '/home' do
+    'test'
+    erb :'user/index'
+  end
+
+  # get '/user/:id' do
+  #
+  #   p "hey"
+  #   erb :'user/index'
+  # end
+
   # get '/peeps' do
   #   @user = current_user
   #   @peeps = Peep.order(created_at: :desc)
@@ -68,4 +79,3 @@ class MakersBnb < Sinatra::Base
   run! if app_file == $0
 
 end
-
