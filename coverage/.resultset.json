@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Nat/Projects/makersBnB/app.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/app.rb": [
         1,
         1,
         1,
@@ -31,6 +31,41 @@
         null,
         null,
         null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        9,
+        9,
+        9,
+        9,
+        null,
+        null,
+        1,
+        3,
+        3,
+        null,
+        null,
+        1,
+        3,
+        3,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
         1,
         1,
         null,
@@ -109,11 +144,12 @@
         null,
         null,
         null,
+        null,
         1,
         null,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/helpers/session_helpers.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/helpers/session_helpers.rb": [
         1,
         null,
         1,
@@ -132,7 +168,7 @@
         null,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/models/booking.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/models/booking.rb": [
         1,
         null,
         1,
@@ -140,7 +176,7 @@
         1,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/models/property.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/models/property.rb": [
         1,
         null,
         1,
@@ -148,7 +184,7 @@
         1,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/models/user.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/models/user.rb": [
         1,
         1,
         1,
@@ -166,27 +202,21 @@
         1,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/spec/setup_test_database.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/spec/setup_test_database.rb": [
         1,
         null,
         1,
-        5,
-        5,
+        9,
+        9,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/spec/features/user_authentication_spec.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/spec/features/creating_listing_spec.rb": [
         1,
         1,
         1,
         null,
         1,
         1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
         1,
         1,
         null,
@@ -209,8 +239,6 @@
         null,
         1,
         1,
-        null,
-        null,
         1,
         1,
         null,
@@ -218,7 +246,6 @@
         1,
         1,
         1,
-        null,
         1,
         null,
         1,
@@ -226,7 +253,95 @@
         null,
         null
       ],
-      "/Users/Nat/Projects/makersBnB/spec/features/user_signup_spec.rb": [
+      "/Users/student/Documents/Projects/Week-6/makersBnB/spec/features/edit_and_delete_listing_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/student/Documents/Projects/Week-6/makersBnB/spec/features/test_spec.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/student/Documents/Projects/Week-6/makersBnB/spec/features/user_authentication_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/student/Documents/Projects/Week-6/makersBnB/spec/features/user_signup_spec.rb": [
         1,
         1,
         1,
@@ -240,6 +355,6 @@
         null
       ]
     },
-    "timestamp": 1571679136
+    "timestamp": 1571680198
   }
 }
