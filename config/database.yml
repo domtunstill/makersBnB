@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: makersbnb
+  database: makersbnb_dev
 
 test:
   <<: *default
