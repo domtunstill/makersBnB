@@ -5,9 +5,17 @@
     <title></title>
   </head>
   <body>
-    test
     <form action="/user/<%= @user_id %>/property/new" method="get">
       <input type="submit" name="Submit"/>
     </form>
+    <%if @properties != nil%>
+    <ol>
+      <li>
+      <h3><%= @properties.name %></h3>
+      <p><%= @properties.description %></p>
+      <p><%= @properties.price_per_night %></p>
+      </li>
+    </ol>
+    <% end %>
   </body>
 </html>

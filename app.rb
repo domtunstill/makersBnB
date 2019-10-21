@@ -17,16 +17,22 @@ class MakersBnb < Sinatra::Base
     redirect '/home'
   end
 
-  get '/home' do
-    'test'
+
+  get '/user/:id' do
+    @user_id = params[:id]
+    @properties = Property.find_by(user_id: params[:id])
     erb :'user/index'
   end
 
-  # get '/user/:id' do
-  #
-  #   p "hey"
-  #   erb :'user/index'
-  # end
+  get '/user/:id/property/new' do
+    @user_id = params[:id]
+    erb :'property/new'
+  end
+
+  post '/user/:id/property' do
+    Property.create(user_id: params[:id], name: params[:name], description: params[:description], price_per_night: params[:price])
+    redirect "/user/#{params[:id]}"
+  end
 
   # get '/peeps' do
   #   @user = current_user
