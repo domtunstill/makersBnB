@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
 require './app/helpers/session_helpers'
+require './app/helpers/ordinalize'
 require './app/controllers/init'
 
 
