@@ -15,14 +15,14 @@
         <h3><%= property.name %></h3>
         <p><%= property.description %></p>
         <p>£<%= property.price_per_night %> per night</p>
-        <% if property.availiable_from != nil %>
-          <% d1 = property.availiable_from %>
-          <% d2 = property.availiable_to %>
-          <p>Availiable from: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y") %></p>
-          <p>Availiable to: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y") %></p>
+        <% if property.available_from != nil %>
+          <% d1 = property.available_from %>
+          <% d2 = property.available_to %>
+          <p>Available from: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y") %></p>
+          <p>Available to: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y") %></p>
         <% else %> 
-          <p>Availiable from: Unavailiable</p>
-          <p>Availiable to: Unavailiable></p>
+          <p>Available from: Unavailable</p>
+          <p>Available to: Unavailable></p>
         <% end %>
         <form action="/user/<%= @user.id %>/property/<%= property.id %>/update" method="get">
           <input type="submit" name="Edit" value="Edit"/>

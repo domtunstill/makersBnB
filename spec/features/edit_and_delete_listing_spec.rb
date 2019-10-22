@@ -3,9 +3,7 @@ require 'web_helper'
 feature 'user can update and delete exisitng listings' do
     scenario 'user can update a lisitng' do
         sign_up
-        login
-        user = User.where(name: 'User').first
-        visit "/user/#{user.id}"
+        visit "/user/profile"
         click_button 'Create'
         add_listing
         first('.listing').click_button 'Edit'
@@ -17,15 +15,13 @@ feature 'user can update and delete exisitng listings' do
         click_button 'Submit'
         expect(page).not_to have_content("Makers")
         expect(page).to have_content("Flat Iron")
-        expect(page).to have_content("Availiable from: Tuesday 22nd October 2019")
-        expect(page).to have_content("Availiable to: Wednesday 25th December 2019")
+        expect(page).to have_content("Available from: Tuesday 22nd October 2019")
+        expect(page).to have_content("Available to: Wednesday 25th December 2019")
     end
 
     scenario 'user can delete a lisitng' do
         sign_up
-        login
-        user = User.where(name: 'User').first
-        visit "/user/#{user.id}"
+        visit "/user/profile"
         click_button 'Create'
         add_listing
         first('.listing').click_button 'Delete'

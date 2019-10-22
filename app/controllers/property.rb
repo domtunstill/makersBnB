@@ -12,10 +12,10 @@ class MakersBnb < Sinatra::Base
     name: params[:name], 
     description: params[:description], 
     price_per_night: params[:price].to_i, 
-    availiable_from: params[:start_date], 
-    availiable_to: params[:end_date]
+    available_from: params[:start_date], 
+    available_to: params[:end_date]
     )
-    redirect "/user/#{current_user.id}"
+    redirect "/user/profile"
   end
 
   get '/user/:id/property/:prop_id/update' do
@@ -31,16 +31,16 @@ class MakersBnb < Sinatra::Base
       name: params[:name], 
       description: params[:description], 
       price_per_night: params[:price].to_i, 
-      availiable_from: params[:start_date], 
-      availiable_to: params[:end_date]
+      available_from: params[:start_date], 
+      available_to: params[:end_date]
       )
-    redirect "/user/#{current_user.id}"
+    redirect "/user/profile"
   end
 
   delete '/user/:id/property/:prop_id' do
     @property = Property.where(id: params[:prop_id]).first
     @property.destroy
-    redirect "/user/#{current_user.id}"
+    redirect "/user/profile"
   end
 
 end

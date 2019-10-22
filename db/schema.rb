@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2019_10_22_110859) do
     t.integer "price_per_night", null: false
     t.boolean "booked"
     t.string "image"
-    t.date "availiable_from"
-    t.date "availiable_to"
+    t.date "available_from"
+    t.date "available_to"
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
