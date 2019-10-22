@@ -26,5 +26,19 @@
       <% end %>
     </ol>
     <% end %>
+    <br>
+    <%if @bookings != nil%>
+    <ol>
+      <% @bookings.each do |booking| %>
+      <li class="booking">
+        <h3><%= booking.find_property.name %></h3>
+        <p>Check in date: <%= booking.check_in.strftime("%A %d %B %Y") %></p>
+        <p>Check out date: <%= booking.check_out.strftime("%A %d %B %Y") %></p>
+        <p>Cost: £<%= booking.find_property.price_per_night %> per night</p>
+
+      </li>
+      <% end %>
+    </ol>
+    <% end %>
   </body>
 </html>

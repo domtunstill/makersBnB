@@ -10,6 +10,8 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/property/:id/booking' do
+    Booking.create(property_id: params[:id], user_id: current_user.id, check_in: params[:check_in],check_out: params[:check_out])
+
     redirect "/user/#{current_user.id}"
   end
 end

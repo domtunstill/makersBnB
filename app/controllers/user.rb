@@ -14,7 +14,7 @@ class MakersBnb < Sinatra::Base
       log_in(user)
     redirect '/home'
   end
-  
+
   get '/login' do
     erb :login
   end
@@ -34,6 +34,9 @@ class MakersBnb < Sinatra::Base
   get '/user/:id' do
     @user_id = params[:id]
     @properties = Property.where(user_id: params[:id])
+    # result = PG.connect(dbname: 'makersbnb_dev')
+    # @bookings = result.exec("SELECT name, description, price_per_night, check_in, check_out FROM bookings INNER JOIN properties ON properties.id = bookings.property_id WHERE bookings.user_id = #{params[:id]};")
+    @bookings = Booking.where(user_id: params[:id])
     erb :'user/index'
   end
 
