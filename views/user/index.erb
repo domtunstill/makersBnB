@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/user/<%= @user_id %>/property/new" method="get">
+      <input type="submit" name="Create" value="Create new listing"/>
+    </form>
+    <%if @properties != nil%>
+    <ol>
+      <% @properties.each do |property| %>
+      <li>
+        <h3><%= property.name %></h3>
+        <p><%= property.description %></p>
+        <p>$<%= property.price_per_night %> per night</p>
+      </li>
+      <% end %>
+    </ol>
+    <% end %>
+  </body>
+</html>

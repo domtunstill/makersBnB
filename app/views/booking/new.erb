@@ -5,12 +5,26 @@
     <title></title>
   </head>
   <body>
-    <h1> <%= @property.name %> </h1>
-    <p> <%= @property.description %> </p>
-    <p> £<%= @property.price_per_night %> per night </p>
-
-    <form method="post" action="property/#{@property.id}/booking">
+    <h1>
+      <%= @property.name %>
+    </h1>
+    <p>
+      <%= @property.description %>
+    </p>
+    <p>
+      £<%= @property.price_per_night %>
+      per night
+    </p>
+    <br>
+    <form method="post" action="/property/<%= @property.id %>/booking">
+      <p>Select check in date:
+      </p>
+      <input type="date" name="check_in">
+      <p>Select check out date:
+      </p>
+      <input type="date" name="check_out">
       <input type="submit" name="request_booking" value="Request to Book"/>
     </form>
+
   </body>
 </html>
