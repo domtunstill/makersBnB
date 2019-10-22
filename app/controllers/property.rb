@@ -2,31 +2,31 @@
 class MakersBnb < Sinatra::Base
 
   get '/user/:id/property/new' do
-    @user_id = params[:id]
+    @user = current_user
     erb :'property/new'
   end
 
   post '/user/:id/property' do
-    Property.create(user_id: params[:id], name: params[:name], description: params[:description], price_per_night: params[:price])
-    redirect "/user/#{params[:id]}"
+    Property.create(user_id: current_user.id, name: params[:name], description: params[:description], price_per_night: params[:price].to_i)
+    redirect "/user/#{current_user.id}"
   end
 
   get '/user/:id/property/:prop_id/update' do
-    @user_id = params[:id]
-    @property_id = params[:prop_id]
+    @user = current_user
+    @property = Property.where(id: params[:prop_id]).first
     erb :'property/update'
   end
 
   patch '/user/:id/property/:prop_id' do
     @property = Property.where(id: params[:prop_id]).first
     @property.update(name: params[:name], description: params[:description], price_per_night: params[:price])
-    redirect "/user/#{params[:id]}"
+    redirect "/user/#{current_user.id}"
   end
 
   delete '/user/:id/property/:prop_id' do
     @property = Property.where(id: params[:prop_id]).first
     @property.destroy
-    redirect "/user/#{params[:id]}"
+    redirect "/user/#{current_user.id}"
   end
 
 end

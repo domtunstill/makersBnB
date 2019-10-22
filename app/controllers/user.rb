@@ -31,9 +31,10 @@ class MakersBnb < Sinatra::Base
     end
   end
 
+
   get '/user/profile' do
-    @user_id = params[:id]
-    @properties = Property.where(user_id: params[:id])
+    @user = current_user
+    @properties = Property.where(user_id: @user.id)
     erb :'user/profile'
   end
 
