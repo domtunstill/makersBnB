@@ -6,6 +6,6 @@ feature 'Signing Up to MakersBnb' do
     fill_in('password', with: 'password123')
     click_button('Submit')
     
-    expect(page).to have_content 'Welcome to MakersBnb Exxy Exemplar'
+    expect(page).to have_content 'Welcome to MakersBnB Exxy Exemplar'
   end
 end

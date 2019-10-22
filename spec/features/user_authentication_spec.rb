@@ -7,7 +7,7 @@ feature 'Authentication' do
     fill_in('password', with: 'password123')
     click_button('Submit')
 
-    expect(page).to have_content 'Welcome to MakersBnb Exxy Exemplar'
+    expect(page).to have_content 'Welcome to MakersBnB Exxy Exemplar'
   end
 
   scenario 'User enters wrong login details' do
@@ -18,7 +18,7 @@ feature 'Authentication' do
     fill_in('password', with: 'aloha')
     click_button('Submit')
 
-    expect(page).not_to have_content 'Welcome to MakersBnb Exxy Exemplar'
+    expect(page).not_to have_content 'Welcome to MakersBnB Exxy Exemplar'
     expect(page).to have_content 'Email or password is incorrect, try again'
   end
 
@@ -30,7 +30,7 @@ feature 'Authentication' do
     fill_in('password', with: 'password')
     click_button('Submit')
 
-    expect(page).not_to have_content 'Welcome to MakersBnb Exxy Exemplar'
+    expect(page).not_to have_content 'Welcome to MakersBnB Exxy Exemplar'
     expect(page).to have_content 'Email or password is incorrect, try again'
   end
 
@@ -42,9 +42,9 @@ feature 'Authentication' do
     fill_in('password', with: 'password123')
     click_button('Submit')
 
-    click_button('Log Out')
+    click_link('Log Out')
 
-    expect(page).not_to have_content 'Welcome to MakersBnb Exxy Exemplar'
+    expect(page).not_to have_content 'Welcome to MakersBnB Exxy Exemplar'
     expect(page).to have_content 'You have signed out'
   end
 end

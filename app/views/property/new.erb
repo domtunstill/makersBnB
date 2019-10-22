@@ -5,10 +5,16 @@
     <title></title>
   </head>
   <body>
-    <form action="/user/<%= @user_id %>/property" method="post">
+    <form action="/user/<%= @user.id %>/property" method="post">
       <input type="text" name="name" placeholder="Name"/>
       <input type="text" name="description" placeholder="Description"/>
       <input type="text" name="price" placeholder="Price"/>
+      <div>Date Available From:
+        <input type="date" name="start_date"/>
+      </div>
+      <div>Date Available To:
+        <input type="date" name="end_date"/>
+      </div>
       <input type="submit" name="Submit" />
     </form>
   </body>

@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
 require './app/helpers/session_helpers'
+require './app/helpers/ordinalize'
 require './app/controllers/init'
 
 
@@ -19,6 +20,7 @@ class MakersBnb < Sinatra::Base
 
   get '/' do
     'hello world'
+    redirect '/home'
   end
 
   get '/home' do
