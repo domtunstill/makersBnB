@@ -2,8 +2,10 @@ require 'web_helper'
 
 feature 'creating a listing' do
   scenario 'it creates a new listing' do
+
     sign_up
     visit "/user/profile"
+
     click_button 'Create'
     add_listing
     expect(page).to have_content("Makers")
