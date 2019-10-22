@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> <%= @property.name %> </h1>
+    <p> <%= @property.description %> </p>
+    <p> £<%= @property.price_per_night %> per night </p>
+
+    <form method="post" action="property/#{@property.id}/booking">
+      <input type="submit" name="request_booking" value="Request to Book"/>
+    </form>
+  </body>
+</html>

@@ -1,6 +1,7 @@
 feature 'creating a listing' do
   scenario 'it creates a new listing' do
     user = User.create(name: 'User', email: 'user@user.com', password: 'password')
+    puts user
 
     visit "/user/#{user.id}"
     expect(current_path).to eq("/user/#{user.id}")
