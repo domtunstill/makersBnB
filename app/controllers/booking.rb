@@ -10,6 +10,6 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/property/:id/booking' do
-    redirect "/user/#{current_user.id}"
+    redirect "/user/profile"
   end
 end

@@ -1,6 +1,11 @@
 
 class MakersBnb < Sinatra::Base
 
+  get '/property/all' do
+    @properties = Property.all
+    erb :'property/all'
+  end
+
   get '/user/:id/property/new' do
     @user = current_user
     erb :'property/new'

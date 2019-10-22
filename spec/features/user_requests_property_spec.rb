@@ -25,6 +25,7 @@ feature 'bookings' do
     fill_in 'check_out', with: '23/10/2019'
     click_button 'request_booking'
 
-    expect(page).to have_button('Create')
+    expect(page).to have_content('Makers')
+    expect(page).to have_content('22/10/2019')
   end
 end
