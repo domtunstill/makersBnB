@@ -2,7 +2,7 @@
 class MakersBnb < Sinatra::Base
 
   get '/signup' do
-    erb :signup
+    erb :'user/signup'
   end
 
   post '/signup' do
@@ -16,7 +16,7 @@ class MakersBnb < Sinatra::Base
   end
   
   get '/login' do
-    erb :login
+    erb :'user/login'
   end
 
   post '/login' do
@@ -31,13 +31,13 @@ class MakersBnb < Sinatra::Base
     end
   end
 
-  get '/user/:id' do
+  get '/user/profile' do
     @user_id = params[:id]
     @properties = Property.where(user_id: params[:id])
-    erb :'user/index'
+    erb :'user/profile'
   end
 
-  post '/logout' do
+  get '/logout' do
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect '/home'

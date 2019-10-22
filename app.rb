@@ -19,6 +19,7 @@ class MakersBnb < Sinatra::Base
 
   get '/' do
     'hello world'
+    redirect '/home'
   end
 
   get '/home' do
