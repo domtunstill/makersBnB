@@ -15,9 +15,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
- <link rel="stylesheet" href="css/style.css">
 
-    <title>Hello, world!</title>
+    <title>Login</title>
   </head>
   <body>
     <div class="container">
@@ -45,13 +44,18 @@
                   <a class="nav-link" href="#">All properties</a>
                 </li>
               </ul>
-              <% if @user %>
-              <div class="my-2 my-lg-0">
+              <%# <div class="my-2 my-lg-0">
                 <a
                   class="btn btn-secondary my-2 my-sm-0"
-                  href="/user/profile"
+                  href="/profile"
                   role="button"
                   >My Profile</a
+                >
+                <a
+                  class="btn btn-primary my-2 my-sm-0"
+                  href="#/login"
+                  role="button"
+                  >Log In</a
                 >
                 <a
                   class="btn btn-primary my-2 my-sm-0"
@@ -59,97 +63,55 @@
                   role="button"
                   >Log Out</a
                 >
-              </div>
-              <% else %>
-              <div class="my-2 my-lg-0">
-                <a
-                  class="btn btn-secondary my-2 my-sm-0"
-                  href="/login"
-                  role="button"
-                  >Log In</a
-                >
-
                 <a
                   class="btn btn-primary my-2 my-sm-0"
                   href="/signup"
                   role="button"
                   >Sign Up</a
                 >
-              </div>
-              <% end %>
+
+   
+              </div> %>
             </div>
           </nav>
         </div>
       </div>
     </div>
-    <%# <div class="container bg-overlay">
-      <div class="row text-center">
-        <h1>Find your home away from home.</h1>
 
-        <br />
-        <a class="btn btn-primary btn-lg btn-light" href="/signup" role="button"
-          >Get Started</a
-        >
-      </div>
-    </div> %>
-
-<div class="container">
-<div class="row">
-<div class="col-12">
-<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
-</div>
-</div>
-</div>
-</div>
 
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <% if @user %>
+                  <div class="col-4">&nbsp;
+      </div>
+        <div class="col-4">
 
-          <h1>Welcome to MakersBnB <%= @user.name %></h1>
-          <% end %>
-          <h2>Featured properties</h2>
+<form method="post" action="/login">
+  <div class="form-group">
+    <label for="login-email">Email</label>
+    <input type="text" class="form-control" name="email" id="login-email" placeholder="email@email.com">
+  </div>
+  <div class="form-group">
+    <label for="login-password">Password</label>
+    <input type="text" class="form-control" id="login-password" placeholder="Has to be 6 characters or longer">
+  </div>
+  <div class="form-group">
+    <input type="submit" name="Submit" class="btn btn-primary" />
+  </div>
+</form>
+            <div class="col-4">&nbsp;
+      </div>
 
-          <div
-            class="alert alert-warning alert-dismissible fade show"
-            role="alert"
-          >
-            <%= flash[:notice] %>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <%= flash[:notice] %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
         </div>
       </div>
-      <div class="row">
-        <div class="col-3">
-          <div class="card" style="width: auto;">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
