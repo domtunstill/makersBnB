@@ -7,7 +7,14 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/user/:id/property' do
-    Property.create(user_id: current_user.id, name: params[:name], description: params[:description], price_per_night: params[:price].to_i)
+    Property.create(
+    user_id: current_user.id, 
+    name: params[:name], 
+    description: params[:description], 
+    price_per_night: params[:price].to_i, 
+    availiable_from: params[:start_date], 
+    availiable_to: params[:end_date]
+    )
     redirect "/user/#{current_user.id}"
   end
 
@@ -19,7 +26,14 @@ class MakersBnb < Sinatra::Base
 
   patch '/user/:id/property/:prop_id' do
     @property = Property.where(id: params[:prop_id]).first
-    @property.update(name: params[:name], description: params[:description], price_per_night: params[:price])
+    @property.update(
+      user_id: current_user.id, 
+      name: params[:name], 
+      description: params[:description], 
+      price_per_night: params[:price].to_i, 
+      availiable_from: params[:start_date], 
+      availiable_to: params[:end_date]
+      )
     redirect "/user/#{current_user.id}"
   end
 
