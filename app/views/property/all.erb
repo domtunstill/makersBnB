@@ -23,6 +23,7 @@
     <%= partial(:'partials/header') %>
 
 
+
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -35,8 +36,13 @@
   <div class="row no-gutters">
     <div class="col-md-4">
 
-     <a href="/property/<%=property.id%>"><img src="https://images.unsplash.com/photo-1534889156217-d643df14f14a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" 
-      class="card-img" alt="property"></a>
+
+     <a href="/property/<%=property.id%>">      <div class="card-img" alt="property" style="background-image: url('<%= property.image %>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #eee;height:100%;"></div></a>
+
 
     </div>
     <div class="col-md-8">
