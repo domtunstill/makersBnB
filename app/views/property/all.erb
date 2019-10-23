@@ -94,13 +94,14 @@
  <div class="card mb-3" style="max-width: 700px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="https://images.unsplash.com/photo-1534889156217-d643df14f14a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" class="card-img" alt="property">
+     <a href="/property/<%=property.id%>"><img src="https://images.unsplash.com/photo-1534889156217-d643df14f14a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" 
+      class="card-img" alt="property"></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
 
               
-        <h5 class="card-title"><%= property.name %></h5>
+        <h5 class="card-title"><a href="/property/<%=property.id%>"><%= property.name %></a></h5>
         <p class="card-text">
         <p><%= property.description %></p>
               <p>£<%= property.price_per_night %> per night</p>
@@ -115,7 +116,7 @@
                 %>
               </p>
               <a class="btn btn-primary my-2 my-sm-0"
-                  href="/propery/#{property.id}"
+                  href="/property/<%=property.id%>/booking/new"
                   role="button" name="book"
                   >
                   Book</a>
