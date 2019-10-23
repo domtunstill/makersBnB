@@ -17,128 +17,182 @@
     />
     <link rel="stylesheet" href="css/style.css" />
 
-    <title>All properties</title>
+    <title>Hello, world!</title>
   </head>
   <body>
     <%= partial(:'partials/header') %>
 
-
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" style="background: url("<%= property.image %>");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  color: #eee;" alt="Card image cap">
-
-
-
-
-  <div class="card-body">
-    <h5 class="card-title"><%= property.name %></h5>
-            <p><%= property.description %></p>
-              <p>£<%= property.price_per_night %> per night</p>
-              <% if property.available_from != nil %> <% d1 =
-              property.available_from %> <% d2 = property.available_to %>
-              <p class="small">
-                Available from: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y")
-                %>
-              </p>
-              <p class="small">
-                Available to: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y")
-                %>
-              </p>
-              <a
-                  class="btn btn-primary my-2 my-sm-0"
-                  href="#"
-                  role="button" name="book"
-                  >Book</a
-                >
-              <% else %>
-              <p class="small">Available from: Unavailable</p>
-              <p class="small">Available to: Unavailable></p>
-                              
-              <% end %>
-        </p>
-  </div>
-</div>
-
-
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>Featured properties</h2>
-          <%if @properties != nil%>
-          <ol class="list-unstyled">
-            <% @properties.each do |property| %>
-            <li class="listing">
- <div class="card mb-3" style="max-width: 700px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="<%= property.image %>" class="card-img" alt="property">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-
-              
-        <h5 class="card-title"><%= property.name %></h5>
-        <p class="card-text">
-        <p><%= property.description %></p>
-              <p>£<%= property.price_per_night %> per night</p>
-              <% if property.available_from != nil %> <% d1 =
-              property.available_from %> <% d2 = property.available_to %>
-              <p class="small">
-                Available from: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y")
-                %>
-              </p>
-              <p class="small">
-                Available to: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y")
-                %>
-              </p>
+          <div
+            class="jumbotron bg-overlay d-flex justify-content-center align-items-center flex-column"
+          >
+            <div>
+              <h2 class="display-4 text-center">
+                <strong>Find your home away from home.</strong>
+              </h2>
+            </div>
+            <div>
               <a
-                  class="btn btn-primary my-2 my-sm-0"
-                  href="#"
-                  role="button" name="book"
-                  >Book</a
-                >
-              <% else %>
-              <p class="small">Available from: Unavailable</p>
-              <p class="small">Available to: Unavailable></p>
-                              
-              <% end %>
-        </p>
-        
-      </div>
-    </div>
-  </div>
-</div>
-              
-            </li>
-
-            
-
-            <% end %>
-          </ol>
-          <% end %>
+                class="btn btn-primary btn-lg btn-light"
+                href="/signup"
+                role="button"
+                >Get Started</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <% if @user %>
+
+          <h1>Welcome to MakersBnB <%= @user.name %></h1>
+          <% end %>
+          <h2>Featured properties</h2>
+
+          <div
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+          >
+            <%= flash[:notice] %>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="card" style="width: auto;">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 text-center">
+          <i class="fas fa-cat"></i>
+          <h3 class="card-title">Cats love us</h3>
+          <p>
+            Saepe omnis beatae libero quisquam ex nostrum repellendus,
+            consectetur suscipit. Velit iusto ducimus sit quos officiis nesciunt
+            libero
+          </p>
+        </div>
+        <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 text-center">
+          <i class="fas fa-brain"></i>
+          <h3 class="card-title">We have brains</h3>
+          <p>
+            Saepe omnis beatae libero quisquam ex nostrum repellendus,
+            consectetur suscipit. Velit iusto ducimus sit quos officiis nesciunt
+            libero
+          </p>
+        </div>
+        <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 text-center">
+          <i class="fas fa-crow"></i>
+          <h3 class="card-title">Random bird</h3>
+
+          <p>
+            Saepe omnis beatae libero quisquam ex nostrum repellendus,
+            consectetur suscipit. Velit iusto ducimus sit quos officiis nesciunt
+            libero
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container marketing">
+      <div class="row featurette my-4 d-flex align-items-center">
+        <div class="col-md-7 px-5">
+          <h2 class="featurette-heading">
+            First featurette heading.
+            <span class="text-muted">It'll blow your mind.</span>
+          </h2>
+          <p class="lead">
+            Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
+            ligula porta felis euismod semper. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+            commodo.
+          </p>
+        </div>
+        <div
+          class="col-md-5"
+          style="background-image: url('https://images.unsplash.com/photo-1522444195799-478538b28823?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #eee;width: 100%; height: 500px;"
+          class="featurette-image img-fluid mx-auto"
+        ></div>
+      </div>
+
+      <div class="row featurette my-4 d-flex align-items-center">
+        <div class="col-md-7 order-md-2 px-5">
+          <h2 class="featurette-heading">
+            Oh yeah, it's that good.
+            <span class="text-muted">See for yourself.</span>
+          </h2>
+          <p class="lead">
+            Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
+            ligula porta felis euismod semper. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+            commodo.
+          </p>
+        </div>
+        <div
+          class="col-md-5 order-md-1"
+          style="background-image: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #eee;width: 100%; height: 500px;"
+          class="featurette-image img-fluid mx-auto"
+        ></div>
+      </div>
+
+      <div class="row featurette my-4 d-flex align-items-center ">
+        <div class="col-md-7 px-5">
+          <h2 class="featurette-heading">
+            And lastly, this one. <span class="text-muted">Checkmate.</span>
+          </h2>
+          <p class="lead">
+            Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
+            ligula porta felis euismod semper. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+            commodo.
+          </p>
+        </div>
+        <div
+          class="col-md-5"
+          style="background-image: url('https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #eee;width: 100%; height: 500px;"
+          class="featurette-image img-fluid mx-auto"
+        >
+          <!-- <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16dfaabf89e%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16dfaabf89e%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;"> -->
+        </div>
+      </div>
+    </div>
+    <%= partial(:'partials/footer') %> <%= partial(:'partials/footer-links') %>
   </body>
 </html>
