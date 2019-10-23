@@ -5,6 +5,7 @@
     <title></title>
   </head>
   <body>
+  
   <%= flash[:notice] %>
     <form action="/user/<%= @user.id %>/property/new" method="get">
       <input type="submit" name="Create" value="Create new listing"/>
