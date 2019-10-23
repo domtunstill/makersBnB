@@ -1,0 +1,64 @@
+<header>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
+            <a class="navbar-brand" href="/" style="font-size: 1.5rem;"
+              ><strong>MakersBnB</strong></a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/property/all">All properties</a>
+                </li>
+              </ul>
+              <% if @user %>
+              <div class="my-2 my-lg-0">
+                <a
+                  class="btn btn-secondary my-2 my-sm-0"
+                  href="/user/profile"
+                  role="button"
+                  >My Profile</a
+                >
+                <a
+                  class="btn btn-primary my-2 my-sm-0"
+                  href="/logout"
+                  role="button" name="Log Out"
+                  >Log Out</a
+                >
+              </div>
+              <% else %>
+              <div class="my-2 my-lg-0">
+                <a
+                  class="btn btn-secondary my-2 my-sm-0"
+                  href="/login"
+                  role="button"
+                  >Log In</a
+                >
+
+                <a
+                  class="btn btn-primary my-2 my-sm-0"
+                  href="/signup"
+                  role="button"
+                  >Sign Up</a
+                >
+              </div>
+              <% end %>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+</header>

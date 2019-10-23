@@ -15,99 +15,36 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
- <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
 
     <title>Hello, world!</title>
   </head>
   <body>
+    <%= partial(:'partials/header') %>
+
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
-            <a class="navbar-brand" href="/" style="font-size: 1.5rem;"
-              ><strong>MakersBnB</strong></a
-            >
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/property/all">All properties</a>
-                </li>
-              </ul>
-              <% if @user %>
-              <div class="my-2 my-lg-0">
-                <a
-                  class="btn btn-secondary my-2 my-sm-0"
-                  href="/user/profile"
-                  role="button"
-                  >My Profile</a
-                >
-                <a
-                  class="btn btn-primary my-2 my-sm-0"
-                  href="/logout"
-                  role="button" name="Log Out"
-                  >Log Out</a
-                >
-              </div>
-              <% else %>
-              <div class="my-2 my-lg-0">
-                <a
-                  class="btn btn-secondary my-2 my-sm-0"
-                  href="/login"
-                  role="button"
-                  >Log In</a
-                >
-
-                <a
-                  class="btn btn-primary my-2 my-sm-0"
-                  href="/signup"
-                  role="button"
-                  >Sign Up</a
-                >
-              </div>
-              <% end %>
+          <div
+            class="jumbotron bg-overlay d-flex justify-content-center align-items-center flex-column"
+          >
+            <div>
+              <h2 class="display-4 text-center">
+                <strong>Find your home away from home.</strong>
+              </h2>
             </div>
-          </nav>
+            <div>
+              <a
+                class="btn btn-primary btn-lg btn-light"
+                href="/signup"
+                role="button"
+                >Get Started</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <%# <div class="container bg-overlay">
-      <div class="row text-center">
-        <h1>Find your home away from home.</h1>
-
-        <br />
-        <a class="btn btn-primary btn-lg btn-light" href="/signup" role="button"
-          >Get Started</a
-        >
-      </div>
-    </div> %>
-
-<div class="container">
-<div class="row">
-<div class="col-12">
-<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
-</div>
-</div>
-</div>
-</div>
 
     <div class="container">
       <div class="row">

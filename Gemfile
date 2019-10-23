@@ -11,6 +11,7 @@ gem 'rubocop', '0.71.0'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-flash'
+gem 'sinatra-partial', require: 'sinatra/partial'
 
 group :test do
   gem 'capybara'
