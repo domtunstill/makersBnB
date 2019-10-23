@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <%if @properties != nil%>
+    <ol>
+      <% @properties.each do |property| %>
+        <li class="booking">
+          <h3><%= property.name %></h3>
+          <p><%= property.description %></p>
+          <p>£<%= property.price_per_night %> per night</p>
+          <ol>
+          <% property.find_pending_bookings.each do |booking| %>
+          <% d1 = booking.check_in %>
+          <% d2 = booking.check_out %>
+          <h3>Guest: <%= booking.find_guest.name %></h3>
+          <p>Check in: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y") %></p>
+          <p>Check out: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y") %></p>
+
+          <h3>Booking Status: <%= booking.booking_status.capitalize %></h3>
+          </ol>
+        <% end %>
+
+        </li>
+      <% end %>
+      <% else %>
+        <li><p>No bookings</p></li>
+
+    </ol>
+    <% end %>
+
+  </body>
+</html>
