@@ -16,7 +16,7 @@ require 'active_record'
 require 'sinatra/activerecord'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require_relative './setup_test_database'
-require 'features/web_helper'
+require_relative './web_helper'
 
 # ENV['RACK_ENV'] = 'test'
 # ENV['ENVIRONMENT'] = 'test'
