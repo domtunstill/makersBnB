@@ -114,15 +114,15 @@
                 Available to: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y")
                 %>
               </p>
-              <a
-                  class="btn btn-primary my-2 my-sm-0"
-                  href="#"
+              <a class="btn btn-primary my-2 my-sm-0"
+                  href="/propery/#{property.id}"
                   role="button" name="book"
-                  >Book</a
-                >
+                  >
+                  Book</a>
+
               <% else %>
               <p class="small">Available from: Unavailable</p>
-              <p class="small">Available to: Unavailable></p>
+              <p class="small">Available to: Unavailable</p>
                               
               <% end %>
         </p>

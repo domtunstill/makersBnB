@@ -1,5 +1,3 @@
-require 'web_helper'
-
 feature 'user can update and delete exisitng listings' do
     scenario 'user can update a lisitng' do
         sign_up
