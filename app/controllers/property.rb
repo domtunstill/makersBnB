@@ -1,6 +1,7 @@
 
 class MakersBnb < Sinatra::Base
 
+
   get '/property/all' do
     @properties = Property.all
     erb :'property/all'
@@ -13,11 +14,11 @@ class MakersBnb < Sinatra::Base
 
   post '/user/:id/property' do
     Property.create(
-    user_id: current_user.id, 
-    name: params[:name], 
-    description: params[:description], 
-    price_per_night: params[:price].to_i, 
-    available_from: params[:start_date], 
+    user_id: current_user.id,
+    name: params[:name],
+    description: params[:description],
+    price_per_night: params[:price].to_i,
+    available_from: params[:start_date],
     available_to: params[:end_date]
     )
     redirect "/user/profile"
@@ -32,11 +33,11 @@ class MakersBnb < Sinatra::Base
   patch '/user/:id/property/:prop_id' do
     @property = Property.where(id: params[:prop_id]).first
     @property.update(
-      user_id: current_user.id, 
-      name: params[:name], 
-      description: params[:description], 
-      price_per_night: params[:price].to_i, 
-      available_from: params[:start_date], 
+      user_id: current_user.id,
+      name: params[:name],
+      description: params[:description],
+      price_per_night: params[:price].to_i,
+      available_from: params[:start_date],
       available_to: params[:end_date]
       )
     redirect "/user/profile"
@@ -46,6 +47,12 @@ class MakersBnb < Sinatra::Base
     @property = Property.where(id: params[:prop_id]).first
     @property.destroy
     redirect "/user/profile"
+  end
+
+  get '/property/:id' do
+    @property = Property.find(params[:id])
+    puts @property
+    erb :'property/index'
   end
 
 end

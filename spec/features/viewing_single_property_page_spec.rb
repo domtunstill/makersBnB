@@ -3,11 +3,9 @@ feature 'view property page' do
         property = create_new_property
         sign_up
         visit '/property/all'
-        p Property.all.first
-        expect(page).to have_content('Book')
-        # expect(page).to have_button('book')
-        click_link 'book'
+        save_and_open_page
+        click_link 'Makers'
         expect(page).to have_content('Makers')
-        expect(path).to eq("/property/#{property.id}")
+        expect(current_path).to eq("/property/#{property.id}")
     end
 end
