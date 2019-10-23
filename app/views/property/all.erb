@@ -99,7 +99,7 @@
     <div class="col-md-8">
       <div class="card-body">
 
-              
+
         <h5 class="card-title"><%= property.name %></h5>
         <p class="card-text">
         <p><%= property.description %></p>
@@ -115,7 +115,7 @@
                 %>
               </p>
               <a class="btn btn-primary my-2 my-sm-0"
-                  href="/propery/#{property.id}"
+                  href="/property/<%= property.id %>"
                   role="button" name="book"
                   >
                   Book</a>
@@ -123,18 +123,18 @@
               <% else %>
               <p class="small">Available from: Unavailable</p>
               <p class="small">Available to: Unavailable</p>
-                              
+
               <% end %>
         </p>
-        
+
       </div>
     </div>
   </div>
 </div>
-              
+
             </li>
 
-            
+
 
             <% end %>
           </ol>
