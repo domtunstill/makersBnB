@@ -1,5 +1,3 @@
-require 'web_helper'
-
 feature 'creating a listing' do
   scenario 'it creates a new listing' do
 

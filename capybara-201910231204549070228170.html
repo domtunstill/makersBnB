@@ -20,60 +20,90 @@
     <title>All properties</title>
   </head>
   <body>
-    <%= partial(:'partials/header') %>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
+            <a class="navbar-brand" href="/" style="font-size: 1.5rem;"
+              ><strong>MakersBnB</strong></a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">All properties</a>
+                </li>
+              </ul>
+              
+              <div class="my-2 my-lg-0">
+                <a
+                  class="btn btn-secondary my-2 my-sm-0"
+                  href="/login"
+                  role="button"
+                  >Log In</a
+                >
 
+                <a
+                  class="btn btn-primary my-2 my-sm-0"
+                  href="/signup"
+                  role="button"
+                  >Sign Up</a
+                >
+              </div>
+              
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <div class="row">
         <div class="col-12">
           <h2>Featured properties</h2>
-          <%if @properties != nil%>
+          
           <ol class="list-unstyled">
-            <% @properties.each do |property| %>
+            
             <li class="listing">
  <div class="card mb-3" style="max-width: 700px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-
-
-     <a href="/property/<%=property.id%>">      <div class="card-img" alt="property" style="background-image: url('<%= property.image %>');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  color: #eee;height:100%;"></div></a>
-
-
+     <a href="/property/126"><img src="https://images.unsplash.com/photo-1534889156217-d643df14f14a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" 
+      class="card-img" alt="property"></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
 
               
-        <h5 class="card-title" name="single_prop"><a href="/property/<%=property.id%>"><%= property.name %></a></h5>
+        <h5 class="card-title" name="single_prop"><a href="/property/126">Makers</a></h5>
         <p class="card-text">
-        <p><%= property.description %></p>
-              <p>£<%= property.price_per_night %> per night</p>
-              <% if property.available_from != nil %> <% d1 =
-              property.available_from %> <% d2 = property.available_to %>
+        <p>52 Commercial Place</p>
+              <p>£133 per night</p>
+                
               <p class="small">
-                Available from: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y")
-                %>
+                Available from: Wednesday 25th December 2019
               </p>
               <p class="small">
-                Available to: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y")
-                %>
+                Available to: Friday 25th December 2020
               </p>
               <a class="btn btn-primary my-2 my-sm-0"
-                  href="/property/<%=property.id%>/booking/new"
+                  href="/property/126/booking/new"
                   role="button" name="book"
                   >
                   Book</a>
 
-              <% else %>
-              <p class="small">Available from: Unavailable</p>
-              <p class="small">Available to: Unavailable</p>
-
-              <% end %>
+              
         </p>
 
       </div>
@@ -85,9 +115,9 @@
 
 
 
-            <% end %>
+            
           </ol>
-          <% end %>
+          
         </div>
       </div>
     </div>
