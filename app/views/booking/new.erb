@@ -55,9 +55,11 @@
 
 <script>
   $(function () {
+     console.log(<%= @dates_booked %>);
     $('#datetimepicker4').datetimepicker({
       format: 'L',
-      disabledDates: [27 Dec 2019, 28 Dec 2019, 29 Dec 2019]
+      disabledDates: <%= @dates_booked %>
+
       }); 
  });
 </script>

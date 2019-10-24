@@ -52,7 +52,20 @@
             #{d2.day.ordinalize} %B %Y") %>
           </p>
 
-          <a
+<div class="bg-light p-4 my-4">
+          <form action='/property/all/available' method="get">
+  <div class="form-row d-flex align-items-end">
+    <div class="col">
+          <label for="checkin">Check-in</label>
+      <input type="date" class="form-control" name="check_in" id="checkin">
+    </div>
+    <div class="col">
+                <label for="checkin">Check-out</label>
+
+      <input type="date" class="form-control" id="checkout" name="check_out">
+    </div>
+
+<a
             class="btn btn-primary my-2 my-sm-0"
             href="/property/<%= @property.id %>/booking/new"
             role="button"
@@ -60,6 +73,14 @@
           >
             Book</a
           >
+  </div>
+</form>
+</div>
+      </div>
+    </div>
+  </div>
+
+          
         </div>
       </div>
     </div>

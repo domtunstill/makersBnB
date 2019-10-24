@@ -15,7 +15,7 @@ class Property < ActiveRecord::Base
     dates = []
     bookings.each do |booking|
       (booking.check_in..booking.check_out).each do |date|
-        dates << date
+        dates << date.strftime("%F")
       end
     end
     dates

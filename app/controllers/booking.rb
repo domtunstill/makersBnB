@@ -3,7 +3,7 @@ class MakersBnb < Sinatra::Base
 
   get '/property/:id/booking/new' do
     @property = Property.find(params[:id])
-
+    @dates_booked = @property.dates_booked
     erb :'booking/new'
   end
 
