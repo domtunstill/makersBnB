@@ -4,6 +4,8 @@ class MakersBnb < Sinatra::Base
 
   get '/property/all' do
     @properties = Property.all
+    @date_current = Date.today.to_s
+    @date_year = (Date.today + 365).to_s
     erb :'property/all'
   end
 
