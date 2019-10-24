@@ -12,8 +12,8 @@ feature 'bookings' do
     click_button 'request_booking'
 
     expect(page).to have_content('Makers')
-    expect(page).to have_content('Check in: Tuesday 22nd October 2019')
-    expect(page).to have_content('Check out: Wednesday 23rd October 2019')
+    expect(page).to have_content('Tuesday 22nd October 2019')
+    expect(page).to have_content('Wednesday 23rd October 2019')
     expect(page).to have_content('Pending')
   end
 
@@ -34,8 +34,8 @@ feature 'bookings' do
     visit'/user/profile'
     click_button 'booking_requests'
     expect(page).to have_content('Makers')
-    expect(page).to have_content('Check in: Tuesday 22nd October 2019')
-    expect(page).to have_content('Check out: Wednesday 23rd October 2019')
+    expect(page).to have_content('Tue 22nd Oct 2019')
+    expect(page).to have_content('Wed 23rd Oct 2019')
     expect(page).to have_content('Pending')
   end
 
@@ -54,8 +54,8 @@ feature 'bookings' do
     click_button 'submit'
     visit("/user/#{user2.id}/booking/requests")
     expect(page).to have_content('Makers')
-    expect(page).to have_content('Check in: Tuesday 22nd October 2019')
-    expect(page).to have_content('Check out: Wednesday 23rd October 2019')
+    expect(page).to have_content('Tue 22nd Oct 2019')
+    expect(page).to have_content('Wed 23rd Oct 2019')
     expect(page).to have_content('Confirmed')
   end
 end

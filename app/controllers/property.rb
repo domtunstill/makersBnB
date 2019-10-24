@@ -67,7 +67,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/property/all/available' do
-    
+
     p "objects: " + @properties
     erb :'property/available'
   end
