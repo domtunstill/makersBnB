@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <%= partial(:'partials/header-links') %>
+
+    <title>My profile</title>
   </head>
   <body>
+
 
   <%= flash[:notice] %>
     <form action="/user/<%= @user.id %>/property/new" method="get">
@@ -61,6 +69,26 @@
     </ol>
     <% end %>
 
-  </body>
+    <%= partial(:'partials/header') %> 
+    
 
+    <div class="container">
+      <div class="row">
+        <%= partial(:'partials/sidebar') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          
+          <!-- MY PROPERTIES -->
+          <%= partial(:'partials/profile-properties') %>
+          <!-- BOOKINGS -->
+          <%= partial(:'partials/profile-bookings') %>
+          <!-- REQUESTS -->
+          <%= partial(:'partials/profile-requests') %>
+
+
+    <%= flash[:notice] %>
+        </main>
+      </div>
+    </div>
+    <%= partial(:'partials/footer-links') %>
+  </body>
 </html>

@@ -51,8 +51,25 @@ class MakersBnb < Sinatra::Base
 
   get '/property/:id' do
     @property = Property.find(params[:id])
-    puts @property
     erb :'property/index'
+  end
+
+  post '/property/all/available' do
+    @check_in = params[:check_in]
+    p "checkin: " + @check_in
+    @check_out = params[:check_out]
+    p "checkout: " + @check_out
+    @properties = Property.where(available_from: params[:check_in]..params[:check_out], available_to: params[:check_in]..params[:check_out])
+    # @properties = Property.where("available_from >= :check_in AND available_to <= :check_out", {check_in: params[:check_in], check_out: params[:check_out]})
+    # @properties = Property.where("available_from >= ? AND available_to <= ?", {check_in: params[:check_in], check_out: params[:check_out]})
+    p @properties
+    redirect 'property/all/available'
+  end
+
+  get '/property/all/available' do
+    
+    p "objects: " + @properties
+    erb :'property/available'
   end
 
 end
