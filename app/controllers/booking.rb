@@ -29,6 +29,7 @@ class MakersBnb < Sinatra::Base
     @booking.update(
       booking_status: params[:confirm_select_list]
       )
+    flash[:notice] = "Booking confirmed"
     redirect "/user/profile"
   end
 
