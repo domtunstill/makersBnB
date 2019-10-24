@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<div class="container">
+
   <div class="panel panel-primary">
     <div class="panel-heading">Schedule an Appointment</div>
       <div class="panel-body">
@@ -56,7 +56,7 @@
 <script>
   $(function () {
      console.log(<%= @dates_booked %>);
-    $('#datetimepicker4').datetimepicker({
+    $('#datepicker').datetimepicker({
       format: 'L',
       disabledDates: <%= @dates_booked %>
 

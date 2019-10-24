@@ -9,15 +9,7 @@
     />
 
     <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
     <%= partial(:'partials/header-links') %>
-
     <title>Hello, world!</title>
   </head>
   <body>
@@ -40,9 +32,7 @@
 
     <div class="container">
       <div class="row">
-        
         <div class="col-8">
-        
           <h1><%= @property.name %></h1>
           <p><%= @property.description %></p>
           <p><%= @property.price_per_night %></p>
@@ -56,86 +46,81 @@
           </p>
         </div>
 
-  <div class="col-4">
-  <div class="bg-light p-4 my-4">
-          <form id='sandbox-container' action='/property/all/available' method="get">
-  <div class="form-row d-flex align-items-end">
-    <div class="col">
-         <div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">Schedule an Appointment</div>
-      <div class="panel-body">
-         <div class="row">
-            <div class="col-md-6">
-               <div class="form-group">
-                  <label class="control-label">First Name</label>
-                  <input type="text" class="form-control" name="fname" id="fname">
-               </div>
-            </div>
-            <div class="col-md-6">
-               <div class="form-group">
-                  <label class="control-label">Last Name</label>
-                  <input type="text" class="form-control" name="lname" id="lname">
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6">
-               <div class="form-group">
-                  <label class="control-label">Email</label>
-                  <input type="text" class="form-control" name="email" id="email">
-               </div>
-            </div>
-            <div class='col-md-6'>
-               <div class="form-group">
-                  <label class="control-label">Appointment Time</label>
-                  <div class='input-group date' id='datetimepicker1'>
-                     <input type='text' class="form-control" />
-                     <span class="input-group-addon">
-                     <span class="glyphicon glyphicon-calendar"></span>
-                     </span>
+        <div class="col-4 bg-light p-4" >
+          <form action="" method="">
+
+            <div class="form-group">
+              <label for="check_in">Check out</label>
+              <div
+                class="input-group date"
+                id="check_in"
+                data-target-input="nearest"
+              >
+                <input
+                  type="text"
+                  class="form-control datetimepicker-input"
+                  data-target="#check_in"
+                  name="check_in"
+                />
+                <div
+                  class="input-group-append"
+                  data-target="#check_in"
+                  data-toggle="datetimepicker"
+                >
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
                   </div>
-               </div>
+                </div>
+              </div>
             </div>
-        </div>
-        <input type="submit" class="btn btn-primary" value="Submit">
-      </div>
-   </div>
-</div>
 
-<script>
-  $(function () {
-    $('#datetimepicker1').datetimepicker();
- });
-</script>
+            <div class="form-group">
+              <label for="check_out">Check out</label>
+              <div
+                class="input-group date"
+                id="check_out"
+                data-target-input="nearest"
+              >
+                <input
+                  type="text"
+                  class="form-control datetimepicker-input"
+                  data-target="#check_out"
+                  name="check_out"
+                />
+                <div
+                  class="input-group-append"
+                  data-target="#check_out"
+                  data-toggle="datetimepicker"
+                >
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      <%# <input type="date" data-provide="datepicker" class="form-control" name="check_in" id="checkin"> %>
-    </div>
-    <div class="col">
-                <label for="checkin">Check-out</label>
 
-      <input type="date" data-provide="datepicker" class="form-control" id="checkout" name="check_out">
-    </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Book</button>
+            </div>
+            <script type="text/javascript">
+              $(function() {
+                $("#check_in").datetimepicker({
+                  format: 'L',
+                  // defaultDate: moment(<%= @property.available_from %>), 
+                  // minDate: moment(<%= @property.available_from.strftime("%F") %>), 
+                  minDate: <%= @property.available_from %>, 
+                  disabledDates: <%= @dates_booked %>
+                });
+                $("#check_out").datetimepicker({
+                  format: 'L',
+                  // defaultDate: <%= @property.available_to.strftime("%F") %>, 
+                  disabledDates: <%= @dates_booked %>
+                });
+              });
 
-<div class="col" class="width:100%;">
-<a
-            class="btn btn-primary my-2 my-sm-0"
-            href="/property/<%= @property.id %>/booking/new"
-            role="button"
-            name="book"
-          >
-            Book</a
-          >
-
-  </div>
-</form>
-</div>
-  </div>
-      
-    </div>
-  </div>
-
-          
+            </script>
+          </form>
         </div>
       </div>
     </div>
