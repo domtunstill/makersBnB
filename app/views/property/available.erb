@@ -27,8 +27,8 @@
       <div class="col-12">
 
 <div class="bg-light p-4 my-4">
-          <form action='/property/all' method="post">
-  <div class="form-row d-flex align-items-end">
+          <form action='/property/all/available' method="get">
+  <div class="form-row d-flex align-items-end justify-content-start">
     <div class="col">
           <label for="checkin">Check-in</label>
       <input type="date" class="form-control" name="check_in" id="checkin">
@@ -43,7 +43,7 @@
       <input type="submit" class="btn btn-primary" value="Submit">
     </div>
     <div class="col">
-<a href="/property/all"  class="btn btn-secondary">Secondary</a>
+<a href="/property/all"  class="btn btn-secondary">Reset</a>
     </div>
   </div>
 </form>
@@ -55,7 +55,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>Featured properties</h2>
+          <h3 class="py-3">Available properties for the dates: <%= @check_in %> - <%= @check_out %></h3>
           <%if @properties != nil%>
           <ol class="list-unstyled">
             <% @properties.each do |property| %>

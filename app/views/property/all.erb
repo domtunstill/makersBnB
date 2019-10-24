@@ -28,7 +28,7 @@
 
 <div class="bg-light p-4 my-4">
           <form action='/property/all/available' method="get">
-  <div class="form-row d-flex align-items-end">
+  <div class="form-row d-flex align-items-end justify-content-start">
     <div class="col">
           <label for="checkin">Check-in</label>
       <input type="date" class="form-control" name="check_in" id="checkin">
@@ -39,11 +39,11 @@
       <input type="date" class="form-control" id="checkout" name="check_out">
     </div>
 
-    <div class="col">
-      <input type="submit" class="btn btn-primary" value="Submit">
+    <div >
+      <input type="submit" class="btn btn-primary mx-3" value="Submit">
     </div>
-    <div class="col">
-<a href="/property/all"  class="btn btn-secondary">Reset</a>
+    <div>
+<a href="/property/all"  class="btn btn-secondary mx-1">Reset</a>
     </div>
   </div>
 </form>
@@ -81,8 +81,9 @@
         <p class="card-text">
         <p><%= property.description %></p>
               <p>£<%= property.price_per_night %> per night</p>
-              <% if property.available_from != nil %> <% d1 =
-              property.available_from %> <% d2 = property.available_to %>
+              <% if property.available_from != nil %> 
+              <% d1 = property.available_from %> 
+              <% d2 = property.available_to %>
               <p class="small">
                 Available from: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y")
                 %>
