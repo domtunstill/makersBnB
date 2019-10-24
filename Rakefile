@@ -1,6 +1,6 @@
 require './app'
 require 'sinatra/activerecord/rake'
-require 'sinatra/activerecord'
+# require 'sinatra/activerecord'
 
 
 if ENV['RACK_ENV'] != 'production'
