@@ -15,6 +15,7 @@ gem 'sinatra-partial', require: 'sinatra/partial'
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

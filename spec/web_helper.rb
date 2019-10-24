@@ -6,10 +6,10 @@ def sign_up
     click_button('Submit')
 end
 
-def login
+def login(email, password)
     visit '/login'
-    fill_in('email', with: 'user@user.com')
-    fill_in('password', with: 'password')
+    fill_in('email', with: email)
+    fill_in('password', with: password)
     click_button('Submit')
 end
 
@@ -33,15 +33,15 @@ def add_listing
 end
 
 def create_user1
-  user = User.create(name: 'User', email: 'user@user.com', password: 'password')
-end
+    user = User.create(name: 'User', email: 'user@user.com', password: 'password')
+  end
 
-def create_user2
-  user = User.create(name: 'Example', email: 'example@example.com', password: '123password')
-end
+  def create_user2
+    user = User.create(name: 'Example', email: 'example@example.com', password: '123password')
+  end
 
-def create_new_property
-  user = create_user1
+  def create_new_property
+    user = create_user1
 
-  property = Property.create(user_id: user.id, name: 'Makers', description: '52 Commercial Place', price_per_night: 133, available_from: "2019-12-25", available_to: "2020-12-25")
-end
+    property = Property.create(user_id: user.id, name: 'Makers', description: '52 Commercial Place', price_per_night: 133, available_from: "2019-12-25", available_to: "2020-12-25")
+  end
