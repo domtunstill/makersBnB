@@ -21,8 +21,15 @@ class MakersBnb < Sinatra::Base
   get '/user/:id/booking/requests' do
     @user = current_user
     @properties = Property.where(user_id: @user.id)
-    # @bookings = Booking.where(property_id: @properties.id)
     erb :'booking/requests'
+  end
+
+  patch '/booking/:id/confirm' do
+    @booking = Booking.find(params[:id])
+    @booking.update(
+      booking_status: params[:confirm_select_list]
+      )
+    redirect "/user/profile"
   end
 
 end
