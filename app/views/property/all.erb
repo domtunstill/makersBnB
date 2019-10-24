@@ -31,12 +31,12 @@
   <div class="form-row d-flex align-items-end">
     <div class="col">
           <label for="checkin">Check-in</label>
-      <input type="date" class="form-control" name="check_in" id="checkin">
+      <input type="date" min="<%= @date_current %>" max="<%= @date_year %>" class="form-control" name="check_in" id="checkin">
     </div>
     <div class="col">
-                <label for="checkin">Check-out</label>
+                <label for="checkout">Check-out</label>
 
-      <input type="date" class="form-control" id="checkout" name="check_out">
+      <input type="date" min="<%= @date_tomorrow %>" max="<%= @date_year %>" class="form-control" id="checkout" name="check_out">
     </div>
 
     <div class="col">

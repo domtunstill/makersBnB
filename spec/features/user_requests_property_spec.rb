@@ -56,4 +56,6 @@ feature 'bookings' do
     expect(page).to have_content('Wednesday 23rd October 2019')
     expect(page).to have_content('Confirmed')
   end
+
+  
 end
