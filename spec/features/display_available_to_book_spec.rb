@@ -30,7 +30,7 @@ feature 'Filter available listings by dates' do
     # fill the form chec it and checkout
     # expect to see the property
 
-    # the same but with dates outside of the range 
+    # the same but with dates outside of the range
     # expect not to see the property
 
     # the same but with dates are withing the range
