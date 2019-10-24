@@ -21,6 +21,8 @@ class MakersBnb < Sinatra::Base
     available_from: params[:start_date],
     available_to: params[:end_date]
     )
+    
+    Email.send_create_space_email(current_user)
     redirect "/user/profile"
   end
 

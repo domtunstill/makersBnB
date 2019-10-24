@@ -12,6 +12,8 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-flash'
 gem 'sinatra-partial', require: 'sinatra/partial'
+gem 'pony'
+gem 'sendgrid-ruby'
 
 group :test do
   gem 'capybara'

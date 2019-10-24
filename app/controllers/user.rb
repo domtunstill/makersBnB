@@ -12,10 +12,14 @@ class MakersBnb < Sinatra::Base
         password: params[:password]
       )
       log_in(user)
+
+      Email.send_greeting_email(user)
+
     redirect '/home'
   end
-  
+
   get '/login' do
+
     erb :'user/login'
   end
 
