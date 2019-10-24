@@ -20,4 +20,5 @@ class Property < ActiveRecord::Base
     end
     dates
   end
+  
 end

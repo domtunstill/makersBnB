@@ -51,6 +51,7 @@ class MakersBnb < Sinatra::Base
 
   get '/property/:id' do
     @property = Property.find(params[:id])
+    @dates_booked = @property.dates_booked
     erb :'property/index'
   end
 
