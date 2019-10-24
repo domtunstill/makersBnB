@@ -15,8 +15,8 @@
           <h3><%= property.name %></h3>
           <p><%= property.description %></p>
           <p>£<%= property.price_per_night %> per night</p>
-          <ol> 
-          <% bookings.each do |booking| %>  
+          <ol>
+          <% bookings.each do |booking| %>
           <% d1 = booking.check_in %>
           <% d2 = booking.check_out %>
           <h3>Guest: <%= booking.find_guest.name %></h3>

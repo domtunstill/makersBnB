@@ -12,8 +12,8 @@ feature 'user can update and delete exisitng listings' do
         fill_in 'end_date', with: "2019-12-25"
         click_button 'Submit'
         expect(page).to have_content("Flat Iron")
-        expect(page).to have_content("Tue 22nd Oct 2019")
-        expect(page).to have_content("Wed 25th Dec 2019")
+        expect(page).to have_content("Tue 22nd October 2019")
+        expect(page).to have_content("Wed 25th December 2019")
     end
 
     scenario 'user can delete a listing' do
