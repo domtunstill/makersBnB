@@ -2,7 +2,7 @@ feature 'user can update and delete exisitng listings' do
     scenario 'user can update a lisitng' do
         sign_up
         visit "/user/profile"
-        click_button 'Create'
+        click_link 'Add property'
         add_listing
         first('.listing').click_button 'Edit'
         fill_in 'name', with: 'Flat Iron'
@@ -13,14 +13,14 @@ feature 'user can update and delete exisitng listings' do
         click_button 'Submit'
         expect(page).not_to have_content("Makers")
         expect(page).to have_content("Flat Iron")
-        expect(page).to have_content("Available from: Tuesday 22nd October 2019")
-        expect(page).to have_content("Available to: Wednesday 25th December 2019")
+        expect(page).to have_content("Tuesday 22nd Oct 2019")
+        expect(page).to have_content("Wednesday 25th Dec 2019")
     end
 
-    scenario 'user can delete a lisitng' do
+    scenario 'user can delete a listing' do
         sign_up
         visit "/user/profile"
-        click_button 'Create'
+        click_link 'Add property'
         add_listing
         first('.listing').click_button 'Delete'
         expect(page).not_to have_content("Makers")

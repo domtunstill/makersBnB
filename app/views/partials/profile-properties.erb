@@ -15,7 +15,7 @@
               </thead>
               <tbody>
                 <%if @properties != nil%> <% @properties.each do |property| %>
-                <tr>
+                <tr class="listing">
                   <% if property.available_from != nil %> <% d1 =
                   property.available_from %> <% d2 = property.available_to %>
                   <td><%= property.id %></td>

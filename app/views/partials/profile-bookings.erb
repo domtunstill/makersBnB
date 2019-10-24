@@ -16,7 +16,7 @@
               <tbody>
                 <%if @bookings != nil%>
                 <% @bookings.each do |booking| %>
-                <tr>
+                <tr class="booking">
                   <% d1 = booking.check_in %>
           <% d2 = booking.check_out %>
                   <td><%=booking.id %></td>
