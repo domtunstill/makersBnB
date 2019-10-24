@@ -33,4 +33,11 @@ class MakersBnb < Sinatra::Base
     redirect "/user/profile"
   end
 
+  delete '/user/:id/booking/:book_id' do
+    @user = current_user
+    @booking = Booking.find(params[:book_id])
+    @booking.destroy
+    redirect "/user/profile"
+  end
+
 end
