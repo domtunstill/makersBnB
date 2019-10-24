@@ -1,61 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <%= partial(:'partials/header-links') %>
+
+    <title>My profile</title>
   </head>
   <body>
-  
-  <%= flash[:notice] %>
-    <form action="/user/<%= @user.id %>/property/new" method="get">
-      <input type="submit" name="Create" value="Create new listing"/>
-    </form>
-    <%if @properties != nil%>
-    <ol>
-      <% @properties.each do |property| %>
-      <li class="listing">
-        <h3><%= property.name %></h3>
-        <p><%= property.description %></p>
-        <p>£<%= property.price_per_night %> per night</p>
-        <% if property.available_from != nil %>
-          <% d1 = property.available_from %>
-          <% d2 = property.available_to %>
-          <p>Available from: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y") %></p>
-          <p>Available to: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y") %></p>
-        <% else %> 
-          <p>Available from: Unavailable</p>
-          <p>Available to: Unavailable</p>
-        <% end %>
-        <form action="/user/<%= @user.id %>/property/<%= property.id %>/update" method="get">
-          <input type="submit" name="Edit" value="Edit"/>
-        </form>
-        <form action="/user/<%= @user.id %>/property/<%= property.id %>" method="post">
-          <input type='hidden' name='_method' value='DELETE'/>
-          <input type="submit" value="Delete" />
-        </form>
-      </li>
-      <% end %>
-    </ol>
-    <% end %>
+    <%= partial(:'partials/header') %> 
+    
 
-    <%if @bookings != nil%>
-    <ol>
-      <% @bookings.each do |booking| %>
-        <li class="booking">
-          <h3><%=booking.find_property.name %></h3>
-          <p><%= booking.find_property.description %></p>
-          <p>£<%= booking.find_property.price_per_night %> per night</p>
-          <% d1 = booking.check_in %>
-          <% d2 = booking.check_out %>
-          <p>Check in: <%= d1.strftime("%A #{d1.day.ordinalize} %B %Y") %></p>
-          <p>Check out: <%= d2.strftime("%A #{d2.day.ordinalize} %B %Y") %></p>
-        </li>
-      <% end %>
-      <% else %> 
-        <li><p>No bookings</p></li>
-    </ol>
-    <% end %>
+    <div class="container">
+      <div class="row">
+        <%= partial(:'partials/sidebar') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <!-- MY PROPERTIES -->
+          <%= partial(:'partials/profile-properties') %>
+          <!-- BOOKINGS -->
+          <%= partial(:'partials/profile-bookings') %>
+          <!-- REQUESTS -->
+          <%= partial(:'partials/profile-requests') %>
 
+    <%= flash[:notice] %>
+        </main>
+      </div>
+    </div>
+    <%= partial(:'partials/footer-links') %>
   </body>
-
 </html>

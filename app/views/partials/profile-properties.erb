@@ -1,0 +1,63 @@
+
+          <h2>My properties</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price per night</th>
+                  <th>Available from</th>
+                  <th>Available to</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%if @properties != nil%> <% @properties.each do |property| %>
+                <tr>
+                  <% if property.available_from != nil %> <% d1 =
+                  property.available_from %> <% d2 = property.available_to %>
+                  <td><%= property.id %></td>
+                  <td><%= property.name %></td>
+                  <td>£<%= property.price_per_night %></td>
+                  <td>
+                    <%= d1.strftime("%a #{d1.day.ordinalize} %b
+                    %Y") %>
+                  </td>
+                  <td><%= d2.strftime("%a #{d2.day.ordinalize} %b %Y") %></td>
+                  <% else %>
+                  <td>-</td>
+                  <td>-</td>
+                  <% end %>
+                  <td>
+                    <form
+                      action="/user/<%= @user.id %>/property/<%= property.id %>/update"
+                      method="get"
+                    >
+                      <input
+                        type="submit"
+                        name="Edit"
+                        value="Edit"
+                        class="btn btn-secondary btn-sm"
+                      />
+                    </form>
+                  </td>
+                  <td>
+                    <form
+                      action="/user/<%= @user.id %>/property/<%= property.id %>"
+                      method="post"
+                    >
+                      <input type="hidden" name="_method" value="DELETE" />
+                      <input
+                        type="submit"
+                        value="Delete"
+                        class="btn btn-secondary btn-sm"
+                      />
+                    </form>
+                  </td>
+                </tr>
+                <% end %> <% end %>
+              </tbody>
+            </table>
+          </div>
