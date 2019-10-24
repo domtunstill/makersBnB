@@ -56,10 +56,9 @@ class MakersBnb < Sinatra::Base
 
   get '/property/all/available' do
     @check_in = params[:check_in]
-    p "checkin: " + @check_in
     @check_out = params[:check_out]
-    p "checkout: " + @check_out
-    @properties = Property.where("available_from <= :check_in AND available_to >= :check_out", {check_in: params[:check_in], check_out: params[:check_out]})
+    properties = Property.where("available_from <= :check_in AND available_to >= :check_out", {check_in: params[:check_in], check_out: params[:check_out]})
+    @properties = Property.booked_check(properties, @check_in, @check_out)
     erb :'property/available'
   end
 
