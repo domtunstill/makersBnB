@@ -11,7 +11,6 @@ require 'active_record'
 
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
-
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each { |file| require file }
 
 
