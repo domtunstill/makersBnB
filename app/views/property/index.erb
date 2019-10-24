@@ -39,7 +39,9 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        
+        <div class="col-8">
+        
           <h1><%= @property.name %></h1>
           <p><%= @property.description %></p>
           <p><%= @property.price_per_night %></p>
@@ -51,8 +53,10 @@
             <%d2 = @property.available_to %> Available to: <%= d2.strftime("%A
             #{d2.day.ordinalize} %B %Y") %>
           </p>
+        </div>
 
-<div class="bg-light p-4 my-4">
+  <div class="col-4">
+  <div class="bg-light p-4 my-4">
           <form action='/property/all/available' method="get">
   <div class="form-row d-flex align-items-end">
     <div class="col">
@@ -65,6 +69,7 @@
       <input type="date" class="form-control" id="checkout" name="check_out">
     </div>
 
+<div class="col" class="width:100%;">
 <a
             class="btn btn-primary my-2 my-sm-0"
             href="/property/<%= @property.id %>/booking/new"
@@ -73,10 +78,12 @@
           >
             Book</a
           >
+
   </div>
 </form>
 </div>
-      </div>
+  </div>
+      
     </div>
   </div>
 
