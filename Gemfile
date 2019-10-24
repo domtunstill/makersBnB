@@ -7,6 +7,7 @@ gem 'bcrypt'
 gem 'pg'
 gem 'rake'
 gem 'rack'
+gem 'rspec'
 gem 'rubocop', '0.71.0'
 gem 'sinatra'
 gem 'sinatra-activerecord'
@@ -16,7 +17,6 @@ gem 'sinatra-partial', require: 'sinatra/partial'
 group :test do
   gem 'capybara'
   gem 'launchy'
-  gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
