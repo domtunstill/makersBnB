@@ -12,8 +12,8 @@ feature 'bookings' do
     click_button 'request_booking'
 
     expect(page).to have_content('Makers')
-    expect(page).to have_content('Check in: Tuesday 22nd October 2019')
-    expect(page).to have_content('Check out: Wednesday 23rd October 2019')
+    expect(page).to have_content('Tuesday 22nd October 2019')
+    expect(page).to have_content('Wednesday 23rd October 2019')
     expect(page).to have_content('Pending')
   end
 
@@ -25,17 +25,16 @@ feature 'bookings' do
     login('user@user.com', 'password') #user1 logs in and books
 
     visit "/property/#{property.id}/booking/new"
-    fill_in 'check_in', with: '22/10/2019'
-    fill_in 'check_out', with: '23/10/2019'
+    fill_in 'check_in', with: '10/11/2019'
+    fill_in 'check_out', with: '11/11/2019'
     click_button 'request_booking'
 
     login('example@example.com', '123password') #user2 logs in and checks bookings
 
     visit'/user/profile'
-    click_button 'booking_requests'
     expect(page).to have_content('Makers')
-    expect(page).to have_content('Check in: Tuesday 22nd October 2019')
-    expect(page).to have_content('Check out: Wednesday 23rd October 2019')
+    expect(page).to have_content('Sun 10th November 2019')
+    expect(page).to have_content('Mon 11th November 2019')
     expect(page).to have_content('Pending')
   end
 
@@ -48,14 +47,15 @@ feature 'bookings' do
     login('example@example.com', '123password') #user2 logs in and checks bookings
 
     visit'/user/profile'
-    click_button 'booking_requests'
     expect(page).to have_content('Pending')
     select('Confirm')
     click_button 'submit'
     visit("/user/#{user2.id}/booking/requests")
     expect(page).to have_content('Makers')
-    expect(page).to have_content('Check in: Tuesday 22nd October 2019')
-    expect(page).to have_content('Check out: Wednesday 23rd October 2019')
+    expect(page).to have_content('Tuesday 22nd October 2019')
+    expect(page).to have_content('Wednesday 23rd October 2019')
     expect(page).to have_content('Confirmed')
   end
+
+  
 end

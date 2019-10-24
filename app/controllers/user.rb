@@ -14,7 +14,7 @@ class MakersBnb < Sinatra::Base
       log_in(user)
     redirect '/home'
   end
-  
+
   get '/login' do
     erb :'user/login'
   end
@@ -36,7 +36,6 @@ class MakersBnb < Sinatra::Base
     @user = current_user
     @properties = Property.where(user_id: @user.id)
     @bookings = Booking.where(user_id: @user.id)
-    flash[:notice] = "Booking confirmed"
     erb :'user/profile'
   end
 

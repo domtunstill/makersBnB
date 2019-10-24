@@ -29,6 +29,14 @@ class MakersBnb < Sinatra::Base
     @booking.update(
       booking_status: params[:confirm_select_list]
       )
+    flash[:notice] = "Booking confirmed"
+    redirect "/user/profile"
+  end
+
+  delete '/user/:id/booking/:book_id' do
+    @user = current_user
+    @booking = Booking.find(params[:book_id])
+    @booking.destroy
     redirect "/user/profile"
   end
 
