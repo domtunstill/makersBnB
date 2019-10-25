@@ -18,60 +18,8 @@
       <div class="row">
         <%= partial(:'partials/sidebar') %>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <form action="/user/<%= @user.id %>/property" method="post">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                placeholder="Example input"
-                name="name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="description">Another label</label>
-              <input
-                type="text-area"
-                row="3"
-                class="form-control"
-                id="description"
-                placeholder="Another input"
-                name="description"
-              />
-            </div>
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input
-                type="number"
-                class="form-control"
-                id="price"
-                placeholder="Example input"
-                name="price"
-              />
-            </div>
-            <div class="form-group">
-              <label for="start_date">Date Available From:</label>
-              <input
-                type="date"
-                class="form-control"
-                id="start_date"
-                name="start_date"
-              />
-            </div>
-            <div class="form-group">
-              <label for="end_date">Date Available To:</label>
-              <input
-                type="date"
-                class="form-control"
-                id="end_date"
-                name="end_date"
-              />
-            </div>
-            <div class="form-group">
-              <input type="submit" name="Submit" class="btn btn-primary" />
-            </div>
-          </form>
+          
+          <%= partial(:'partials/form-create') %>
 
           <%= flash[:notice] %>
         </main>

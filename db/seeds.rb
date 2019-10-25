@@ -3,7 +3,9 @@ olly = User.create(name: 'Olly Holovchenko', email: 'oleh.holo@gmail.com', passw
 nat = User.create(name: 'Nat Elliott-Green', email: 'natelliottgreen34@gmail.com', password: 'password')
 dom = User.create(name: 'Dominic Tunstill', email: 'dteezle@gmail.com', password: 'password')
 
-Property.create(
+
+
+duncan_property1 = Property.create(
   user_id: duncan.id,
   name: 'Duncan_prop_1',
   description: 'A cosy place',
@@ -25,9 +27,9 @@ Property.create(
   available_to: '2020-02-20'
 )
 
-Property.create(
+olly_property1 = Property.create(
   user_id: olly.id,
-  name: 'Olly_prop_2',
+  name: 'Olly_prop_1',
   description: 'The shack',
   price_per_night: 600,
   image: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80',
@@ -47,7 +49,7 @@ Property.create(
   available_to: '2020-10-31'
 )
 
-Property.create(
+nat_property1 = Property.create(
   user_id: nat.id,
   name: 'Nat_prop_1',
   description: 'The love shack',
@@ -57,6 +59,8 @@ Property.create(
   available_from: '2019-11-14',
   available_to: '2019-12-10'
 )
+
+
 
 Property.create(
   user_id: nat.id,
@@ -69,7 +73,7 @@ Property.create(
   available_to: '2019-11-14'
 )
 
-Property.create(
+dom_property1 = Property.create(
   user_id: dom.id,
   name: 'Dom_prop_1',
   description: 'The cottage',
@@ -79,6 +83,8 @@ Property.create(
   available_from: '2019-11-26',
   available_to: '2019-12-20'
 )
+
+
 
 Property.create(
   user_id: dom.id,
@@ -90,3 +96,35 @@ Property.create(
   available_from: '2019-11-04',
   available_to: '2020-07-30'
 )
+
+Booking.create(
+  property_id: duncan_property1.id,
+  user_id: olly.id,
+  check_in: '2019-10-30',
+  check_out: '2019-12-10',
+  booking_status: 'pending'
+  )
+
+  Booking.create(
+    property_id: olly_property1.id,
+    user_id: nat.id,
+    check_in: '2020-05-09',
+    check_out: '2020-05-20',
+    booking_status: 'pending'
+  )
+
+    Booking.create(
+    property_id: dom_property1.id,
+    user_id: nat.id,
+    check_in: '2019-11-28',
+    check_out: '2019-12-15',
+    booking_status: 'pending'
+  )
+
+    Booking.create(
+    property_id: nat_property1.id,
+    user_id: olly.id,
+    check_in: '2019-11-18',
+    check_out: '2019-12-02',
+    booking_status: 'pending'
+  )

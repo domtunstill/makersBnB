@@ -33,17 +33,15 @@
     <div class="container">
       <div class="row">
         <div class="col-8">
-          <h1><%= @property.name %></h1>
-          <p><%= @property.description %></p>
-          <p>£<%= @property.price_per_night %> per night</p>
-          <p>
-            <%d1 = @property.available_from %> Available from: <%=
+          <h1><%= @property.name %></h1>          
+          <p>£<%= @property.price_per_night %> per night  | 
+            <%d1 = @property.available_from %> Available From: <%=
             d1.strftime("%A #{d1.day.ordinalize} %B %Y") %>
-          </p>
-          <p>
-            <%d2 = @property.available_to %> Available to: <%= d2.strftime("%A
+            <%d2 = @property.available_to %> To: <%= d2.strftime("%A
             #{d2.day.ordinalize} %B %Y") %>
           </p>
+          
+          <p><%= @property.description %></p>
         </div>
 
         <div class="col-4 bg-light p-4" >

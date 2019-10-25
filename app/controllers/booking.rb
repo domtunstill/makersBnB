@@ -36,7 +36,7 @@ class MakersBnb < Sinatra::Base
   patch '/booking/:id/confirm' do
     @booking = Booking.find(params[:id])
     @booking.update(
-      booking_status: params[:confirm_select_list]
+      booking_status: params[:status]
       )
     flash[:notice] = "Booking confirmed"
     redirect "/user/profile"
