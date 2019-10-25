@@ -15,6 +15,10 @@ class MakersBnb < Sinatra::Base
       check_out: params[:check_out],
       booking_status: 'pending'
       )
+      Email.guest_book_space_email(current_user)
+      landlord = Property.find(params[:id]).find_landlord
+      p landlord
+      Email.property_booking_request_email(landlord)
     redirect "/user/profile"
   end
 
@@ -24,10 +28,15 @@ class MakersBnb < Sinatra::Base
     erb :'booking/requests'
   end
 
+  get '/user/:id/booking/yours' do
+    @user = current_user
+    erb :'/booking/yours'
+  end
+
   patch '/booking/:id/confirm' do
     @booking = Booking.find(params[:id])
     @booking.update(
-      booking_status: params[:confirm_select_list]
+      booking_status: params[:status]
       )
     flash[:notice] = "Booking confirmed"
     redirect "/user/profile"
