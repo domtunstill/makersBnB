@@ -44,14 +44,8 @@
 </form>
             <div class="col-4">&nbsp;
       </div>
-
-
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <%= flash[:notice] %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+ 
+<%= partial(:'partials/flash_notice') %>
 
         </div>
       </div>
