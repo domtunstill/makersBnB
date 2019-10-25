@@ -6,6 +6,11 @@ class Property < ActiveRecord::Base
   belongs_to :user
   has_many :bookings
 
+
+  def find_landlord
+    User.find(self.user_id)
+  end
+  
   def find_bookings
     Booking.where(property_id: id, booking_status: 'pending').or(Booking.where(property_id: id, booking_status: 'confirmed')).reverse_order
   end

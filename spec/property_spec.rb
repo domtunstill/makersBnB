@@ -12,7 +12,7 @@ describe Property do
           booking_status: 'confirmed'
           )
         dates = property.dates_booked
-        expect(dates.length).to eq(3)
-        expect(dates.first.class).to eq(Date)
+        expect(dates.length).to eq(2)
+        expect(dates.first.class).to eq(String)
     end
 end

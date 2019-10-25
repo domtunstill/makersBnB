@@ -21,15 +21,13 @@
         <%= partial(:'partials/sidebar') %>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-          <!-- MY PROPERTIES -->
-          <%= partial(:'partials/profile-properties') %>
+
           <!-- BOOKINGS -->
           <%= partial(:'partials/profile-bookings') %>
-          <!-- REQUESTS -->
-          <%= partial(:'partials/profile-requests') %>
 
 
-    <%= partial(:'partials/flash_notice') %>
+
+    <%= flash[:notice] %>
         </main>
       </div>
     </div>

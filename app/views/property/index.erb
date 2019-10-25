@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <%= partial(:'partials/header-links') %>
-    <title>Hello, world!</title>
+    <title>Buff Place</title>
   </head>
   <body>
     <%= partial(:'partials/header') %>
@@ -33,8 +33,7 @@
     <div class="container">
       <div class="row">
         <div class="col-8">
-          <h1><%= @property.name %></h1>
-          
+          <h1><%= @property.name %></h1>          
           <p>£<%= @property.price_per_night %> per night  | 
             <%d1 = @property.available_from %> Available From: <%=
             d1.strftime("%A #{d1.day.ordinalize} %B %Y") %>
@@ -46,10 +45,10 @@
         </div>
 
         <div class="col-4 bg-light p-4" >
-          <form action="" method="">
+          <form action="/property/<%= @property.id %>/booking" method="post">
 
             <div class="form-group">
-              <label for="check_in">Check out</label>
+              <label for="check_in">Check In</label>
               <div
                 class="input-group date"
                 id="check_in"
@@ -105,15 +104,15 @@
             <script type="text/javascript">
               $(function() {
                 $("#check_in").datetimepicker({
-                  format: 'L',
-                  // defaultDate: moment(<%= @property.available_from %>), 
-                  // minDate: moment(<%= @property.available_from.strftime("%F") %>), 
-                  minDate: <%= @property.available_from %>, 
+                  format: 'DD/MM/YYYY',
+                  // defaultDate: moment(<%= @property.available_from %>),
+                  // minDate: moment(<%= @property.available_from.strftime("%F") %>),
+                  minDate: <%= @property.available_from %>,
                   disabledDates: <%= @dates_booked %>
                 });
                 $("#check_out").datetimepicker({
-                  format: 'L',
-                  // defaultDate: <%= @property.available_to.strftime("%F") %>, 
+                  format: 'DD/MM/YYYY',
+                  // defaultDate: <%= @property.available_to.strftime("%F") %>,
                   disabledDates: <%= @dates_booked %>
                 });
               });
