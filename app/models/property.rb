@@ -31,13 +31,13 @@ class Property < ActiveRecord::Base
     p dates_s
   end
 
-  def max_date(check_in)
-    dates = dates_booked
-    dates << check_in
-    p dates.sort_by
-    index = dates.index(check_in)
-    dates[index+1]
-  end
+  # def max_date(check_in)
+  #   dates = dates_booked
+  #   dates << check_in
+  #   p dates.sort_by
+  #   index = dates.index(check_in)
+  #   dates[index+1]
+  # end
   
   def self.booked_check(properties, check_in, check_out)
     available_props = []
