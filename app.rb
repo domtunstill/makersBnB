@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ENV['RACK_ENV'] = 'development'
 
 require 'sinatra'
@@ -12,7 +14,6 @@ require 'active_record'
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each { |file| require file }
-
 
 class MakersBnb < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -32,9 +33,9 @@ class MakersBnb < Sinatra::Base
 
   get '/home' do
     @user = current_user
+    @featured_properties = Property.featured_three
     erb :index
   end
 
-  run! if app_file == $0
-
+  run! if app_file == $PROGRAM_NAME
 end

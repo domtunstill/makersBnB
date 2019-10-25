@@ -1,0 +1,30 @@
+<% @featured_properties.each do |property| %>
+                
+                 <% d1 = property.available_from %> <% d2 = property.available_to %>
+                
+<div class="col-4 ">
+          <div class="card" style="width: auto;">
+            <div class="card-img-top" 
+            style="background-image: url('<%= property.image %>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #eee;width: 100%; height: 200px;"
+            
+             ></div>
+            <div class="card-body">
+              <h5 class="card-title"><strong><%= property.name %></strong></h5>
+              <p class="card-text">
+                £<%= property.price_per_night %> per night <br>
+                <hr>
+                <%= property.description %><br>
+               <small> <strong>Available:</strong> <%= d1.strftime("#{d1.day.ordinalize} %b %Y") %> &ndash; <%= d2.strftime("#{d2.day.ordinalize} %b %Y") %><br></small>
+              </p>
+              <a href="/property/<%=property.id%>" class="btn btn-primary">Book</a>
+            </div>
+          </div>
+        </div>
+
+
+
+                  <% end %>
