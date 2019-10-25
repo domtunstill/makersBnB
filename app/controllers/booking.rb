@@ -28,6 +28,11 @@ class MakersBnb < Sinatra::Base
     erb :'booking/requests'
   end
 
+  get '/user/:id/booking/yours' do
+    @user = current_user
+    erb :'/booking/yours'
+  end
+
   patch '/booking/:id/confirm' do
     @booking = Booking.find(params[:id])
     @booking.update(
