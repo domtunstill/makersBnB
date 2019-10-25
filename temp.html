@@ -7,106 +7,102 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
-    <!-- Bootstrap CSS -->
     <%= partial(:'partials/header-links') %>
-    <title>Hello, world!</title>
+
+    <title>My profile</title>
   </head>
   <body>
     <%= partial(:'partials/header') %>
 
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <div
-            class="jumbotron "
-            style="background-image: url('<%= @property.image %>');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  color: #eee;height:500px;"
-          ></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <h1><%= @property.name %></h1>
-          <p><%= @property.description %></p>
-          <p><%= @property.price_per_night %></p>
-          <p>
-            <%d1 = @property.available_from %> Available from: <%=
-            d1.strftime("%A #{d1.day.ordinalize} %B %Y") %>
-          </p>
-          <p>
-            <%d2 = @property.available_to %> Available to: <%= d2.strftime("%A
-            #{d2.day.ordinalize} %B %Y") %>
-          </p>
-        </div>
-
-        <div class="col-4">
-          <form action="" method="">
-            <div class="form-group">
-              <label for="log_in">Example label</label>
-              <div
-                class="input-group date"
-                id="log_in"
-                data-target-input="nearest"
-              >
-                <input type="text" class="form-control datetimepicker-input"
-                data-target="#log_in" name="log_in/>
-                <div
-                  class="input-group-append"
-                  data-target="#log_in"
-                  data-toggle="datetimepicker"
-                >
-                  <div class="input-group-text">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="log_out">Example label</label>
-              <div
-                class="input-group date"
-                id="log_out"
-                data-target-input="nearest"
-              >
+        <%= partial(:'partials/sidebar') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="col-7">
+            <form
+              action="/user/<%= @user.id %>/property/<%= @property.id %>"
+              method="post"
+            >
+              <div class="form-group">
+                <input type="hidden" name="_method" value="PATCH" />
+                <label for="name">Property Name</label>
                 <input
                   type="text"
-                  class="form-control datetimepicker-input"
-                  data-target="#log_out"
-                  name="log_out"
+                  class="form-control"
+                  id="name"
+                  placeholder="Preferably short"
+                  name="name"
+                  value="<%= @property.name %>"
                 />
-                <div
-                  class="input-group-append"
-                  data-target="#log_out"
-                  data-toggle="datetimepicker"
-                >
-                  <div class="input-group-text">
-                    <i class="fa fa-calendar"></i>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input
+                  type="text-area"
+                  row="3"
+                  class="form-control"
+                  id="description"
+                  placeholder="Few words about your property"
+                  name="description"
+                  value="<%= @property.description %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="price">Price per night in £</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  placeholder="Price without currency sign"
+                  name="price"
+                  value="<%= @property.price_per_night %>"
+                />
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <label for="start_date">Available From:</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="start_date"
+                      name="start_date"
+                      value="<%= @property.available_from %>"
+                    />
+                  </div>
+                  <div class="col">
+                    <label for="end_date">Available To:</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="end_date"
+                      name="end_date"
+                      value="<%= @property.available_to %>"
+                    />
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-            <script type="text/javascript">
-              $(function() {
-                $("#log_in").datetimepicker({
-                  format: "L"
-                });
-              });
-            </script>
-          </form>
-        </div>
+
+              <div class="form-group">
+                <label for="name">Image Link</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="image"
+                  placeholder="Full link, including http://"
+                  name="image"
+                  value="<%= @property.image %>"
+                />
+              </div>
+              <div class="form-group">
+                <input type="submit" name="Submit" class="btn btn-primary" />
+              </div>
+            </form>
+          </div>
+          <%= flash[:notice] %>
+        </main>
       </div>
     </div>
-
-    <%= partial(:'partials/footer') %> <%= partial(:'partials/footer-links') %>
+    <%= partial(:'partials/footer-links') %>
   </body>
 </html>

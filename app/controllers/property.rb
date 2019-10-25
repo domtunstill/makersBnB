@@ -3,6 +3,7 @@ class MakersBnb < Sinatra::Base
 
 
   get '/property/all' do
+    @user = current_user
     @properties = Property.all
     @date_current = Date.today.to_s
     @date_tomorrow = (Date.tomorrow).to_s
@@ -22,7 +23,8 @@ class MakersBnb < Sinatra::Base
     description: params[:description],
     price_per_night: params[:price].to_i,
     available_from: params[:start_date],
-    available_to: params[:end_date]
+    available_to: params[:end_date],
+    image: params[:image]
     )
     redirect "/user/profile"
   end

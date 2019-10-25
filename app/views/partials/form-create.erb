@@ -1,0 +1,77 @@
+<div class="col-7">
+          <form action="/user/<%= @user.id %>/property" method="post">
+            <div class="form-group">
+              <label for="name">Property Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Preferably short"
+                name="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input
+                type="text-area"
+                row="3"
+                class="form-control"
+                id="description"
+                placeholder="Few words about your property"
+                name="description"
+              />
+            </div>
+            <div class="form-group">
+              <label for="price">Price per night in £</label>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                placeholder="Price without currency sign"
+                name="price"
+              />
+            </div>
+            <div class="form-group">
+  
+          
+          
+
+<div class="row">
+          <div class="col">
+              <label for="start_date">Available From:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="start_date"
+                name="start_date"
+              />
+              </div>
+<div class="col">
+                        <label for="end_date">Available To:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="end_date"
+                name="end_date"
+              />
+          </div>
+  </div>
+
+
+            </div>
+
+              <div class="form-group">
+              <label for="name">Image Link</label>
+              <input
+                type="text"
+                class="form-control"
+                id="image"
+                placeholder="Full link, including http://"
+                name="image"
+              />
+            </div>
+            <div class="form-group">
+              <input type="submit" name="Submit" class="btn btn-primary" />
+            </div>
+          </form>
+          </div>
