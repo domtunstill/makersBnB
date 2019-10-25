@@ -10,7 +10,7 @@ class Property < ActiveRecord::Base
   def find_landlord
     User.find(self.user_id)
   end
-  
+
   def find_bookings
     Booking.where(property_id: id, booking_status: 'pending').or(Booking.where(property_id: id, booking_status: 'confirmed')).reverse_order
   end
@@ -31,7 +31,6 @@ class Property < ActiveRecord::Base
     dates
   end
 
-<<<<<<< HEAD
   def dates_booked_strings
     dates = dates_booked
     dates_s = []
@@ -48,7 +47,7 @@ class Property < ActiveRecord::Base
   #   index = dates.index(check_in)
   #   dates[index+1]
   # end
-  
+
   def self.booked_check(properties, check_in, check_out)
     available_props = []
     properties.each do |property|
