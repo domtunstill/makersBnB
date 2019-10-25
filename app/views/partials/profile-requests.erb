@@ -1,55 +1,65 @@
+<h2>Booking requests</h2>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price per night</th>
+        <th>Check in</th>
+        <th>Check out</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%if @properties != nil%> <% @properties.each do |property| %> 
+      <% bookings = property.find_bookings %> 
+      <%if bookings.any?%>
+      <tr class="requests">
+        <td><%=property.name %></td>
+        <td>£<%= property.price_per_night %></td>
+        <td>
+          <% bookings.each do |booking| %> 
+          <% d1 = booking.check_in %> 
+          <% d2 = booking.check_out %> 
+          <%= d1.strftime("%a #{d1.day.ordinalize} %B %Y") %>
+        </td>
+        <td><%= d2.strftime("%a #{d2.day.ordinalize} %B %Y") %></td>
+        <td><%= booking.booking_status.capitalize %></td>
 
-          <h2>Booking requests</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
+        <td>
+          <form action="/booking/<%= booking.id %>/confirm" method="post">
+            <input type="hidden" name="_method" value="PATCH" />
 
-                  <th>Name</th>
-                  <th>Price per night</th>
-                  <th>Check in</th>
-                  <th>Check out</th>
-                  <th>Status</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <%if @properties != nil%>
-                <% @properties.each do |property| %>
-                <% bookings = property.find_bookings %>
-                <%if bookings.any?%>
-                <tr class="requests">
-                  <td><%=property.name %></td>
-                  <td>£<%= property.price_per_night %></td>
-                  <td>
-                    <% bookings.each do |booking| %>
-                    <% d1 = booking.check_in %>
-                    <% d2 = booking.check_out %>
-                    <%= d1.strftime("%a #{d1.day.ordinalize} %B %Y") %>
-                  </td>
-                  <td><%= d2.strftime("%a #{d2.day.ordinalize} %B %Y") %></td>
-                <td><%= booking.booking_status.capitalize %></td>
-
-                  <td>
-                    <form
-                      action="/booking/<%= booking.id %>/confirm"
-                      method="post"
-                    >
-                      <input type='hidden' name='_method' value='PATCH'/>
-                      <select name="confirm_select_list">
-                        <option disabled selected value> Confirm or Reject</option>
-                        <option name="confirmed" value="confirmed">Confirm</option>
-                        <option name="rejected" value="rejected">Reject</option>
-                      </select>
-                      <input type='submit' name='submit'></input>
-                    </form>
-                  </td>
-                </tr>
-                <% end %>
-                <% end %>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        <% end %>
+            <button
+              type="submit"
+              name="status"
+              value="confirmed"
+              class="btn btn-secondary btn-sm"
+            >
+              Confirm
+            </button>
+          </form>
+        </td>
+        <td>
+          <form action="/booking/<%= booking.id %>/confirm" method="post">
+            <input type="hidden" name="_method" value="PATCH" />
+            <button
+              type="submit"
+              name="status"
+              value="rejected"
+              class="btn btn-secondary btn-sm"
+            >
+              Reject
+            </button>
+          </form>
+        </td>
+      </tr>
+      <% end %> 
+      <% end %> 
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>

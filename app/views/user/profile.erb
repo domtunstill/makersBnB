@@ -14,7 +14,7 @@
   <body>
 
     <%= partial(:'partials/header') %>
-    
+
 
     <div class="container">
       <div class="row">
@@ -23,13 +23,9 @@
 
           <!-- MY PROPERTIES -->
           <%= partial(:'partials/profile-properties') %>
-          <!-- BOOKINGS -->
-          <%= partial(:'partials/profile-bookings') %>
-          <!-- REQUESTS -->
-          <%= partial(:'partials/profile-requests') %>
 
 
-    <%= flash[:notice] %>
+    <%= partial(:'partials/flash_notice') %>
         </main>
       </div>
     </div>

@@ -12,10 +12,14 @@ class MakersBnb < Sinatra::Base
         password: params[:password]
       )
       log_in(user)
+
+      Email.send_greeting_email(user)
+
     redirect '/home'
   end
 
   get '/login' do
+
     erb :'user/login'
   end
 
@@ -35,7 +39,7 @@ class MakersBnb < Sinatra::Base
   get '/user/profile' do
     @user = current_user
     @properties = Property.where(user_id: @user.id)
-    @bookings = Booking.where(user_id: @user.id)
+    @bookings = Booking.where(user_id: @user.id).where.not(booking_status: 'cancelled')
     erb :'user/profile'
   end
 

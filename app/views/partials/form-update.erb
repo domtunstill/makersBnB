@@ -1,0 +1,83 @@
+<div class="col-7">
+  <form action="/user/<%= @user.id %>/property/<%= @property.id %>" method="post" >
+    <div class="form-group">
+      <input type="hidden" name="_method" value="PATCH" />
+      <label for="name">Property Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Preferably short"
+        name="name"
+        value="<%= @property.name %>"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text-area"
+        row="3"
+        class="form-control"
+        id="description"
+        placeholder="Few words about your property"
+        name="description"
+        value="<%= @property.description %>"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price per night in £</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        placeholder="Price without currency sign"
+        name="price"
+        value="<%= @property.price_per_night %>"
+      />
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <label for="start_date">Available From:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="start_date"
+            name="start_date"
+            value="<%= @property.available_from %>"
+          />
+        </div>
+
+        <div class="col">
+          <label for="end_date">Available To:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="end_date"
+            name="end_date"
+            value="<%= @property.available_to %>"
+          />
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Image Link</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image"
+        placeholder="Full link, including http://"
+        name="image"
+        value="<%= @property.image %>"
+      />
+    </div>
+    <div class="form-group">
+      <input type="submit" name="Submit" class="btn btn-primary" />
+    </div>
+  </form>
+</div>
