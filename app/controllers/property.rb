@@ -12,7 +12,6 @@ class MakersBnb < Sinatra::Base
 
   get '/user/:id/property/new' do
     @user = current_user
-
     erb :'property/new'
   end
 
@@ -60,6 +59,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/property/:id' do
+    @user = current_user
     @property = Property.find(params[:id])
     @dates_booked = @property.dates_booked
     erb :'property/index'

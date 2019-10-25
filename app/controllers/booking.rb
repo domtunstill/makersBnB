@@ -15,6 +15,7 @@ class MakersBnb < Sinatra::Base
       check_out: params[:check_out],
       booking_status: 'pending'
       )
+
     redirect "/user/profile"
   end
 
