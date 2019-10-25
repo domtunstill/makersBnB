@@ -15,6 +15,7 @@ gem 'sinatra-flash'
 gem 'sinatra-partial', require: 'sinatra/partial'
 gem 'pony'
 gem 'sendgrid-ruby'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :test do
   gem 'capybara'
