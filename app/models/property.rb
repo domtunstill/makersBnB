@@ -48,23 +48,18 @@ class Property < ActiveRecord::Base
   #   dates[index+1]
   # end
 
-  def self.booked_check(properties, check_in, check_out)
-    available_props = []
-    properties.each do |property|
-      date_out = (Date.parse(check_out)-1).strftime('%F')
-      dates = property.dates_booked_strings
-=======
+
   def self.booked_check(properties, check_in, check_out)
     available_props = []
     properties.each do |property|
       date_out = (Date.parse(check_out) - 1).strftime('%F')
-      dates = property.dates_booked
->>>>>>> 3bae1daf1615aefd7eb7c52ecb16b1818b360b61
+      dates = property.dates_booked_strings
       unless dates.include?(check_in) || dates.include?(date_out)
         available_props << property
       end
     end
     available_props
   end
+
 
 end
