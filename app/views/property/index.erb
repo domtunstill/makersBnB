@@ -33,9 +33,11 @@
     <div class="container">
       <div class="row">
         <div class="col-8">
-          <h1><%= @property.name %></h1>          
-          <p>£<%= @property.price_per_night %> per night  | 
-            <%d1 = @property.available_from %> Available From: <%=
+          <h1><%= @property.name %></h1>
+          <p><%= @property.description %></p>
+          <p>£<%= @property.price_per_night %> per night</p>
+          <p>
+            <%d1 = @property.available_from %> Available from: <%=
             d1.strftime("%A #{d1.day.ordinalize} %B %Y") %>
             <%d2 = @property.available_to %> To: <%= d2.strftime("%A
             #{d2.day.ordinalize} %B %Y") %>
@@ -48,7 +50,8 @@
           <form action="/property/<%= @property.id %>/booking" method="post">
 
             <div class="form-group">
-              <label for="check_in">Check In</label>
+
+              <label for="check_in">Check in</label>
               <div
                 class="input-group date"
                 id="check_in"
@@ -105,17 +108,27 @@
               $(function() {
                 $("#check_in").datetimepicker({
                   format: 'DD/MM/YYYY',
-                  // defaultDate: moment(<%= @property.available_from %>),
-                  // minDate: moment(<%= @property.available_from.strftime("%F") %>),
-                  minDate: <%= @property.available_from %>,
+                  // defaultDate: <%= @property.available_from.to_json %>,  
+                  minDate: <%= @property.available_from.to_json %>, 
+                  maxDate: <%= (@property.available_to-1).to_json %>, 
+
+
                   disabledDates: <%= @dates_booked %>
                 });
+                
                 $("#check_out").datetimepicker({
                   format: 'DD/MM/YYYY',
-                  // defaultDate: <%= @property.available_to.strftime("%F") %>,
+                  // defaultDate: <%= (@property.available_from+1).to_json %>, 
+                  minDate: <%= (@property.available_from+1).to_json %>, 
+                  maxDate: <%= @property.available_to.to_json %>, 
                   disabledDates: <%= @dates_booked %>
                 });
               });
+
+              // $(function {
+              //   console.log($("#check_in").find("check_in").val())
+              //   console.log($('#check_in').data("DateTimePicker").date();)
+              // });
 
             </script>
           </form>
