@@ -15,6 +15,10 @@ class MakersBnb < Sinatra::Base
       check_out: params[:check_out],
       booking_status: 'pending'
       )
+      Email.guest_book_space_email(current_user)
+      landlord = Property.find(params[:id]).find_landlord
+      p landlord
+      Email.property_booking_request_email(landlord)
     redirect "/user/profile"
   end
 
