@@ -8,4 +8,8 @@ class Booking < ActiveRecord::Base
     Property.find(self.property_id)
   end
 
+  def find_guest
+    User.find(self.user_id)
+  end
+
 end

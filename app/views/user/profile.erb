@@ -12,19 +12,22 @@
     <title>My profile</title>
   </head>
   <body>
-    <%= partial(:'partials/header') %> 
+
+    <%= partial(:'partials/header') %>
     
 
     <div class="container">
       <div class="row">
         <%= partial(:'partials/sidebar') %>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
           <!-- MY PROPERTIES -->
           <%= partial(:'partials/profile-properties') %>
           <!-- BOOKINGS -->
           <%= partial(:'partials/profile-bookings') %>
           <!-- REQUESTS -->
           <%= partial(:'partials/profile-requests') %>
+
 
     <%= flash[:notice] %>
         </main>

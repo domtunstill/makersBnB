@@ -15,17 +15,17 @@
               </thead>
               <tbody>
                 <%if @properties != nil%> <% @properties.each do |property| %>
-                <tr>
+                <tr class="listing">
                   <% if property.available_from != nil %> <% d1 =
                   property.available_from %> <% d2 = property.available_to %>
-                  <td><%= property.id %></td>
+                  <td><%= @properties.index(property) + 1 %></td>
                   <td><%= property.name %></td>
                   <td>£<%= property.price_per_night %></td>
                   <td>
-                    <%= d1.strftime("%a #{d1.day.ordinalize} %b
+                    <%= d1.strftime("%a #{d1.day.ordinalize} %B
                     %Y") %>
                   </td>
-                  <td><%= d2.strftime("%a #{d2.day.ordinalize} %b %Y") %></td>
+                  <td><%= d2.strftime("%a #{d2.day.ordinalize} %B %Y") %></td>
                   <% else %>
                   <td>-</td>
                   <td>-</td>

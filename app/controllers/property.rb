@@ -4,6 +4,9 @@ class MakersBnb < Sinatra::Base
 
   get '/property/all' do
     @properties = Property.all
+    @date_current = Date.today.to_s
+    @date_tomorrow = (Date.tomorrow).to_s
+    @date_year = (Date.today + 365).to_s
     erb :'property/all'
   end
 
@@ -54,15 +57,15 @@ class MakersBnb < Sinatra::Base
 
   get '/property/:id' do
     @property = Property.find(params[:id])
+    @dates_booked = @property.dates_booked
     erb :'property/index'
   end
 
   get '/property/all/available' do
     @check_in = params[:check_in]
-    p "checkin: " + @check_in
     @check_out = params[:check_out]
-    p "checkout: " + @check_out
-    @properties = Property.where("available_from <= :check_in AND available_to >= :check_out", {check_in: params[:check_in], check_out: params[:check_out]})
+    properties = Property.where("available_from <= :check_in AND available_to >= :check_out", {check_in: params[:check_in], check_out: params[:check_out]})
+    @properties = Property.booked_check(properties, @check_in, @check_out)
     erb :'property/available'
   end
 

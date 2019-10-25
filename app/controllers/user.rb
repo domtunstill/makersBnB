@@ -40,7 +40,6 @@ class MakersBnb < Sinatra::Base
     @user = current_user
     @properties = Property.where(user_id: @user.id)
     @bookings = Booking.where(user_id: @user.id)
-    flash[:notice] = "Booking confirmed"
     erb :'user/profile'
   end
 

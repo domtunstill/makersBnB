@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+# ENV['RACK_ENV'] = 'development'
 
 require 'sinatra'
 require 'sinatra/activerecord'
@@ -8,7 +8,9 @@ require 'pony'
 require './app/helpers/session_helpers'
 require './app/helpers/ordinalize'
 require './app/controllers/init'
+require 'active_record'
 
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each { |file| require file }

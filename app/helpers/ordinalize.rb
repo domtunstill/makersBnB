@@ -1,4 +1,4 @@
-class Fixnum
+class Integer
     def ordinalize
       if (11..13).include?(self % 100)
         "#{self}th"
