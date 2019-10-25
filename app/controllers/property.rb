@@ -12,7 +12,14 @@ class MakersBnb < Sinatra::Base
 
   get '/user/:id/property/new' do
     @user = current_user
+
     erb :'property/new'
+  end
+
+  get '/user/:id/property/owned' do
+    @user = current_user
+    @properties = Property.where(user_id: @user.id)
+    erb :'property/owned'
   end
 
   post '/user/:id/property' do

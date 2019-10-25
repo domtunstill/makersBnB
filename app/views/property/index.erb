@@ -50,7 +50,7 @@
           <form action="" method="">
 
             <div class="form-group">
-              <label for="check_in">Check out</label>
+              <label for="check_in">Check In</label>
               <div
                 class="input-group date"
                 id="check_in"
@@ -107,14 +107,14 @@
               $(function() {
                 $("#check_in").datetimepicker({
                   format: 'L',
-                  // defaultDate: moment(<%= @property.available_from %>), 
-                  // minDate: moment(<%= @property.available_from.strftime("%F") %>), 
-                  minDate: <%= @property.available_from %>, 
+                  // defaultDate: moment(<%= @property.available_from %>),
+                  // minDate: moment(<%= @property.available_from.strftime("%F") %>),
+                  minDate: <%= @property.available_from %>,
                   disabledDates: <%= @dates_booked %>
                 });
                 $("#check_out").datetimepicker({
                   format: 'L',
-                  // defaultDate: <%= @property.available_to.strftime("%F") %>, 
+                  // defaultDate: <%= @property.available_to.strftime("%F") %>,
                   disabledDates: <%= @dates_booked %>
                 });
               });

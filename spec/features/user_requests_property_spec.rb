@@ -6,10 +6,10 @@ feature 'bookings' do
 
     login('user@user.com', 'password')
 
-    visit "/property/#{property.id}/booking/new"
-    fill_in 'check_in', with: '22/10/2019'
-    fill_in 'check_out', with: '23/10/2019'
-    click_button 'request_booking'
+    visit "/property/#{property.id}"
+    fill_in 'Check In', with: '22/10/2019'
+    fill_in 'Check Out', with: '23/10/2019'
+    click_button 'Book'
 
     expect(page).to have_content('Makers')
     expect(page).to have_content('Tuesday 22nd October 2019')
@@ -57,5 +57,5 @@ feature 'bookings' do
     expect(page).to have_content('Confirmed')
   end
 
-  
+
 end
