@@ -39,7 +39,7 @@ class MakersBnb < Sinatra::Base
   get '/user/profile' do
     @user = current_user
     @properties = Property.where(user_id: @user.id)
-    @bookings = Booking.where(user_id: @user.id)
+    @bookings = Booking.where(user_id: @user.id).where.not(booking_status: 'cancelled')
     erb :'user/profile'
   end
 
