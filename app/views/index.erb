@@ -42,34 +42,33 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-
-      </div>
-          <% if @user %>
+        <% if @user %>
           <h1>Welcome to MakersBnB <%= @user.name %></h1>
           <% end %>
         <%= partial(:'partials/flash_notice') %>
-        </div>
       </div>
+        </div>
       <div class="row d-flex justify-content-center my-4">
       <h2>Featured properties</h2>
       </div>
+
     <div class="row">
       <%= partial(:'partials/featured_properties') %>
-      <div>
-    </div>
+
     <div class="spacer" >
     </div>
+    </div>
+
+      </div>
+
     
     <%= partial(:'partials/home_advantages') %>
         <div class="spacer" >
     </div>
     <%= partial(:'partials/home_marketing') %>
-        <div class="spacer" >
-    </div>
-        <div class="spacer" >
-    </div>
-        <div class="spacer" >
-    </div>
+        <div class="spacer" ></div>
+        <div class="spacer" ></div>
+        <div class="spacer" ></div>
         <div class="spacer" >
     </div>
     <%= partial(:'partials/footer') %> 
